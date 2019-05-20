@@ -637,39 +637,42 @@ def nextToken():
         return allTokens[i];
 
 ### INICIO CODIGO GENERADO
-A_esperados = ['imprimir'] 
-S_esperados = ['funcion_principal'] 
-B_esperados = [';'] 
 
-def A(): 
-	global A_esperados
-	if(token() == "imprimir" ): 
-		emparejar("imprimir")
-		emparejar("tk_par_izq")
-		emparejar("tk_num")
-		emparejar("tk_suma")
-		emparejar("tk_num")
-		emparejar("tk_par_der")
-		B()
-		return
-	else: 
-		error_sintactico(A_esperados)
-def S(): 
-	global S_esperados
-	if(token() == "funcion_principal" ): 
-		emparejar("funcion_principal")
-		A()
-		return
-	else: 
-		error_sintactico(S_esperados)
-def B(): 
-	global B_esperados
-	if(token() == "tk_pyq" ): 
-		emparejar("tk_pyq")
-		emparejar("fin_principal")
-		return
-	else: 
-		error_sintactico(B_esperados)
+B_esperados = [';']
+A_esperados = ['imprimir']
+S_esperados = ['funcion_principal']
+
+def B():
+        global B_esperados
+        if(token() == "tk_pyq" ):
+                emparejar("tk_pyq")
+                emparejar("fin_principal")
+                return
+        else:
+                error_sintactico(B_esperados)
+def A():
+        global A_esperados
+        if(token() == "imprimir" ):
+                emparejar("imprimir")
+                emparejar("tk_par_izq")
+                emparejar("tk_num")
+                emparejar("tk_suma")
+                emparejar("tk_num")
+                emparejar("tk_par_der")
+                B()
+                return
+        else:
+                error_sintactico(A_esperados)
+def S():
+        global S_esperados
+        if(token() == "funcion_principal" ):
+                emparejar("funcion_principal")
+                A()
+                return
+        else:
+                error_sintactico(S_esperados)
+
+
 
 ### FIN CODIGO GENERADO
 

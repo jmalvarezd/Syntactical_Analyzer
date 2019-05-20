@@ -1,6 +1,7 @@
 import sys
 import math
 
+#TODO: La Mayoria de nombres de token son diferentes, encontrar un acercamiento mas general 
 traduccion_tk = ["+",
 				"-",
 				"*",
