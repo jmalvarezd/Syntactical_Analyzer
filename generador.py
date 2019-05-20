@@ -1,5 +1,4 @@
 import sys
-import math
 
 #TODO: La Mayoria de nombres de token son diferentes, encontrar un acercamiento mas general 
 traduccion_tk = ["+",
@@ -61,8 +60,8 @@ traduccion_tk = ["+",
 				"verdadero",
 				"EOF"]
 
-terminales = [  "tk_mas",
-				"tk_menos",
+terminales = [  "tk_suma",
+				"tk_resta",
 				"tk_mult",
 				"tk_div",
 				"tk_mod",
@@ -77,7 +76,7 @@ terminales = [  "tk_mas",
 				"tk_dif",
 				"tk_neg",
 				"tk_dosp",
-				"tk_pyc",
+				"tk_pyq",
 				"tk_coma",
 				"tk_punto",
 				"tk_par_izq",

@@ -1,0 +1,144 @@
+143
+S -> EoFalPrincipio funcion_principal CuerpoPrincipalP fin_principal EoFalFinal
+CuerpoPrincipalP -> CuerpoPrincipal CuerpoPrincipalP
+CuerpoPrincipalP -> 
+CuerpoPrincipalF -> CuerpoPrincipal CuerpoPrincipalF
+CuerpoPrincipalF -> 
+CuerpoPrincipalS -> CuerpoPrincipal CuerpoPrincipalS
+CuerpoPrincipalS -> 
+CuerpoPrincipalwBM -> CuerpoPrincipalwB CuerpoPrincipalwBM
+CuerpoPrincipalwBM ->
+CuerpoPrincipalwBP -> CuerpoPrincipalwB CuerpoPrincipalwBP
+CuerpoPrincipalwBP ->
+CuerpoPrincipalwBC -> CuerpoPrincipalwB CuerpoPrincipalwBC
+CuerpoPrincipalwBC ->
+CuerpoPrincipalwBS -> CuerpoPrincipalwB CuerpoPrincipalwBS
+CuerpoPrincipalwBS ->
+CuerpoPrincipalwB -> tk_id SentenciaIniId 
+CuerpoPrincipalwB -> HacerMientrasSentencia 
+CuerpoPrincipalwB -> SeleccionarSentencia 
+CuerpoPrincipalwB -> SisentenciawB 
+CuerpoPrincipalwB -> MientrasSentencia 
+CuerpoPrincipalwB -> ParaSentencia 
+CuerpoPrincipalwB -> LeerSentencia 
+CuerpoPrincipalwB -> ImprimirSentencia 
+CuerpoPrincipalwB -> Declaracion 
+CuerpoPrincipalwB -> romper tk_pyc 
+CuerpoPrincipal -> tk_id SentenciaIniId 
+SentenciaIniId -> DeclaracionTiEs
+SentenciaIniId -> LlamarFuncionSentencia
+SentenciaIniId -> AsignacionSentencia
+CuerpoPrincipal -> HacerMientrasSentencia 
+CuerpoPrincipal -> SeleccionarSentencia 
+CuerpoPrincipal -> Sisentencia 
+CuerpoPrincipal -> MientrasSentencia 
+CuerpoPrincipal -> ParaSentencia 
+CuerpoPrincipal -> LeerSentencia 
+CuerpoPrincipal -> ImprimirSentencia 
+CuerpoPrincipal -> Declaracion 
+CuerpoHacerMientras -> tk_id SentenciaIniId CuerpoHacerMientras
+CuerpoHacerMientras -> HacerMientrasSentencia CuerpoHacerMientras
+CuerpoHacerMientras -> SeleccionarSentencia CuerpoHacerMientras
+CuerpoHacerMientras -> Sisentencia CuerpoHacerMientras
+CuerpoHacerMientras -> ParaSentencia CuerpoHacerMientras
+CuerpoHacerMientras -> LeerSentencia CuerpoHacerMientras
+CuerpoHacerMientras -> ImprimirSentencia CuerpoHacerMientras
+CuerpoHacerMientras -> Declaracion CuerpoHacerMientras
+CuerpoHacerMientras -> Declaracion CuerpoHacerMientras
+CuerpoHacerMientras -> romper tk_pyc
+CuerpoHacerMientras ->
+EoFalPrincipio -> E EoFalPrincipio
+EoFalPrincipio -> F EoFalPrincipio
+EoFalPrincipio ->
+EoFalFinal -> E EoFalFinal
+EoFalFinal -> F EoFalFinal
+EoFalFinal ->
+F -> funcion TipoDato tk_id tk_par_izq ListaParametros tk_par_der hacer CuerpoPrincipalF retornar Expresion tk_pyc fin_funcion
+ListaParametros -> TipoDato tk_id ListaParametros1
+ListaParametros ->
+ListaParametros1 -> tk_coma TipoDato tk_id ListaParametros1
+ListaParametros1 ->
+E -> estructura tk_id CuerpoE fin_estructura
+CuerpoE -> Declaracion CuerpoE
+CuerpoE -> tk_id DeclaracionTiEs CuerpoE
+CuerpoE ->
+Declaracion -> TipoDatoNoID ListaDeclaracion tk_pyc
+DeclaracionTiEs -> ListaDeclaracion tk_pyc
+TipoDatoNoID -> entero
+TipoDatoNoID -> real
+TipoDatoNoID -> caracter
+TipoDatoNoID -> cadena
+TipoDatoNoID -> booleano
+TipoDato -> tk_id
+TipoDato -> TipoDatoNoID
+ListaDeclaracion -> tk_id Asignacion ListaDeclaracion1
+ListaDeclaracion1 -> tk_coma ListaDeclaracion
+ListaDeclaracion1 ->
+Asignacion -> tk_asig Expresion
+Asignacion ->
+Expresion -> tk_menos Expresion
+Expresion -> tk_neg Expresion
+Expresion -> tk_par_izq Expresion tk_par_der OtraExpresion
+Expresion -> tk_id LlamadaFuncion OtraExpresion
+Expresion -> Constante OtraExpresion
+OtraExpresion -> Operador Expresion
+OtraExpresion ->
+Constante -> tk_entero
+Constante -> tk_real
+Constante -> tk_cadena
+Constante -> tk_caracter
+Constante -> falso
+Constante -> verdadero
+LlamadaFuncion ->
+LlamadaFuncion -> AccesoaEstructura
+AccesoaEstructura -> tk_punto tk_id AccesoaEstructura
+AccesoaEstructura ->
+LlamadaFuncion -> tk_par_izq ListaParametrosLlamada tk_par_der
+ListaParametrosLlamada -> Expresion ListaParametrosLlamada1
+ListaParametrosLlamada ->
+ListaParametrosLlamada1 -> tk_coma Expresion ListaParametrosLlamada1
+ListaParametrosLlamada1 ->
+Operador -> tk_mas
+Operador -> tk_menos
+Operador -> tk_mult
+Operador -> tk_div
+Operador -> tk_mod
+Operador -> tk_igual
+Operador -> tk_dif
+Operador -> tk_mayor
+Operador -> tk_mayor_igual
+Operador -> tk_menor
+Operador -> tk_menor_igual
+Operador -> tk_o
+Operador -> tk_y
+SisentenciawB -> si tk_par_izq Expresion tk_par_der entonces CuerpoPrincipalwBS SinoSentenciawB fin_si
+SinoSentenciawB ->
+SinoSentenciawB -> si_no CuerpoPrincipalwBS
+Sisentencia -> si tk_par_izq Expresion tk_par_der entonces CuerpoPrincipalS SinoSentencia fin_si
+SinoSentencia ->
+SinoSentencia -> si_no CuerpoPrincipalS
+MientrasSentencia -> mientras tk_par_izq Expresion tk_par_der hacer CuerpoPrincipalwBM fin_mientras
+ParaSentencia -> para tk_par_izq PosibleTipoEntero tk_id tk_asig Expresion tk_pyc Expresion tk_pyc VariablePaso tk_par_der hacer CuerpoPrincipalwBP fin_para
+PosibleTipoEntero -> entero
+PosibleTipoEntero ->
+VariablePaso -> tk_entero
+VariablePaso -> tk_id AccesoaEstructura
+ImprimirSentencia -> imprimir tk_par_izq Expresion ImprimirParametros tk_par_der tk_pyc
+ImprimirParametros -> tk_coma Expresion ImprimirParametros
+ImprimirParametros ->
+LeerSentencia -> leer tk_par_izq tk_id AccesoaEstructuraLeer tk_par_der tk_pyc
+AccesoaEstructuraLeer -> tk_punto tk_id AccesoaEstructuraLeer
+AccesoaEstructuraLeer ->
+LlamarFuncionSentencia -> tk_par_izq ListaParametrosLlamada tk_par_der tk_pyc
+SeleccionarSentencia -> seleccionar tk_par_izq tk_id tk_par_der entre CasosSentencia fin_seleccionar
+CasosSentencia -> defecto tk_dosp CuerpoPrincipalwBC 
+CasosSentencia -> caso tk_entero tk_dosp CuerpoPrincipalwBC CasosSentencia1
+CasosSentencia1 -> caso tk_entero tk_dosp CuerpoPrincipalwBC CasosSentencia1
+CasosSentencia1 -> defecto tk_dosp CuerpoPrincipalwBC
+CasosSentencia1 ->
+HacerMientrasSentencia -> hacer CuerpoHacerMientras posibleFinMientras
+posibleFinMientras -> mientras tk_par_izq Expresion tk_par_der posibleFinMientras1
+MientrasSentenciaAnidada -> hacer CuerpoPrincipalwBM fin_mientras
+posibleFinMientras1 -> tk_pyc
+posibleFinMientras1 -> MientrasSentenciaAnidada CuerpoHacerMientras posibleFinMientras
+AsignacionSentencia -> AccesoaEstructura tk_asig Expresion tk_pyc

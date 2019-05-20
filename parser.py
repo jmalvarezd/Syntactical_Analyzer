@@ -123,64 +123,6 @@ traduccion_tk = ["+",
 				"verdadero",
 				"EOF"]
 
-reservadas = [  "funcion_principal",
-				"fin_principal",
-				"leer",
-				"imprimir",
-				"booleano",
-				"caracter",
-				"entero",
-				"real",
-				"cadena",
-				"si",
-				"entonces",
-				"fin_si",
-				"si_no",
-				"mientras",
-				"hacer",
-				"fin_mientras",
-				"para",
-				"fin_para",
-				"seleccionar",
-				"entre",
-				"caso",
-				"romper",
-				"defecto",
-				"fin_seleccionar",
-				"estructura",
-				"fin_estructura",
-				"funcion",
-				"fin_funcion",
-				"retornar",
-				"falso",
-				"verdadero"]
-
-tokeniden = [   "tk_mas",
-				"tk_menos",
-				"tk_mult",
-				"tk_div",
-				"tk_mod",
-				"tk_asig",
-				"tk_menor",
-				"tk_mayor",
-				"tk_menor_igual",
-				"tk_mayor_igual",
-				"tk_igual",
-				"tk_y",
-				"tk_o",
-				"tk_dif",
-				"tk_neg",
-				"tk_dosp",
-				"tk_pyc",
-				"tk_coma",
-				"tk_punto",
-				"tk_par_izq",
-				"tk_par_der",
-				"identificador",
-				"tk_entero",
-				"tk_real",
-				"tk_caracter",
-				"tk_cadena" ]
 keywords = [
   "and", "constantes", "hasta", "matriz", "paso", "registro", "sino", "vector", "archivo",
   "desde", "inicio", "mientras", "subrutina", "repetir", "tipos", "caso", "eval", "lib",
@@ -264,21 +206,25 @@ def noAvanzar():
 
 first_error = True
 def error_sintactico(Lista):
-	global _token, first_error
-	if (first_error):
-		first_error = False
-		aux = ""
-		if(Lista[0] == "funcion_principal" and token() == EOF):
-			print("Error sintactico: falta funcion_principal")
-		else:			
-			for l in Lista[:-1]:
-				aux += "\"" + str(l) + "\", "
-			aux += "\"" + str(Lista[-1]) + "\""
-			if _token.lexema is not None:
-				traduccion = _token.lexema
-			else:
-				traduccion = _token.ttk
-			print( "<" + str(_token.l) + "," + str(_token.c) + "> Error sintactico: se encontro: \"" + traduccion + "\"; se esperaba: " + aux + ".")
+  global _token, first_error
+  if (first_error):
+    first_error = False
+    aux = ""
+    if(Lista[0] == "funcion_principal" and token() == EOF):
+      print("Error sintactico: falta funcion_principal")
+    else:
+      for l in Lista[:-1]:
+        aux += "\"" + str(l) + "\", "
+      print(Lista[-1] )
+      if type(Lista[-1]) == str:
+        aux += "\"" + str(Lista[-1]) + "\""
+      else:
+        aux += "\"" + Lista[-1].lexema + "\""
+      if _token.lexema is not None:
+        traduccion = _token.lexema
+      else:
+        traduccion = _token.ttk
+      print( "<" + str(_token.l) + "," + str(_token.c) + "> Error sintactico: se encontro: \"" + traduccion + "\"; se esperaba: " + aux + ".")
 
 def token():
         if(_token == None):
@@ -349,7 +295,7 @@ def delta(estadoActual, caracterLeido):
         ##Triviales
         ##TODO: Estos dos primeros no son realmente triviales, 5+3 son 3 tokens, +3 es un token
         elif(caracterLeido == "+"):
-            allTokens.append(Token("tk_suma",startingTokenColumn+1,startingTokenRow+1))
+            allTokens.append(Token("tk_suma",startingTokenColumn+1,startingTokenRow+1,"+"))
             return 0
         elif(caracterLeido == "-"):
             allTokens.append(Token("tk_resta",startingTokenColumn+1,startingTokenRow+1))
@@ -374,7 +320,7 @@ def delta(estadoActual, caracterLeido):
             allTokens.append(Token("tk_par_izq",startingTokenColumn+1,startingTokenRow+1))
             return 0
         elif(caracterLeido == ")"):
-            allTokens.append(Token("tk_par_der",startingTokenColumn+1,startingTokenRow+1))
+            allTokens.append(Token("tk_par_der",startingTokenColumn+1,startingTokenRow+1,")"))
             return 0
         elif(caracterLeido == "["):
             allTokens.append(Token("tk_brac_izq",startingTokenColumn+1,startingTokenRow+1))
@@ -386,7 +332,7 @@ def delta(estadoActual, caracterLeido):
             allTokens.append(Token("tk_dospuntos",startingTokenColumn+1,startingTokenRow+1))
             return 0
         elif(caracterLeido == ";"):
-            allTokens.append(Token("tk_pyq",startingTokenColumn+1,startingTokenRow+1))
+            allTokens.append(Token("tk_pyq",startingTokenColumn+1,startingTokenRow+1,";"))
             return 0
         elif(caracterLeido == ","):
             allTokens.append(Token("tk_coma",startingTokenColumn+1,startingTokenRow+1))
@@ -631,10 +577,10 @@ def delta(estadoActual, caracterLeido):
         
 def nextToken():
         global i,allTokens
-        i = i+1;
+        i = i+1
         if(i>=len(allTokens)):
                 return None
-        return allTokens[i];
+        return allTokens[i]
 
 ### INICIO CODIGO GENERADO
 
