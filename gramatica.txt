@@ -1,0 +1,4 @@
+3
+S -> funcion_principal A 
+A -> imprimir tk_par_izq tk_entero tk_mas tk_entero tk_par_der B
+B -> tk_pyc fin_principal
