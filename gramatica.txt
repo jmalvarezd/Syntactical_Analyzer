@@ -1,4 +1,4 @@
-62
+86
 S -> Settings inicio Body fin 
 Settings -> SettingsConst Settings
 Settings -> SettingsTypes Settings
@@ -57,8 +57,33 @@ TipoVector -> tk_mult
 Tipo -> logico
 Tipo -> tk_id
 Body -> 
+BodyIfSentence -> Body BodyIfSentence
+BodyIfSentence -> 
+BodyWhile -> Body BodyWhile
+BodyWhile -> 
+BodyEvalSentence -> BodyCase BodyIfElseCase
+BodyCase -> caso tk_par_izq Expression tk_par_izq Body BodyCase2
+BodyCase2 -> caso tk_par_izq Expression tk_par_izq Body BodyCase2
+BodyCase2 -> 
+BodyIfElseCase -> 
+BodyIfElseCase -> sino Body
 Body -> Sentence
 Sentence -> tk_id SentenceStartsWithId
 SentenceStartsWithId -> AssignationSeenId 
 Sentence -> Declaration
 Sentence -> CallToFunction
+Sentence -> IfSentence
+Sentence -> WhileSentence
+Sentence -> DoWhileSentence
+Sentence -> EvalSentence
+Sentence -> LoopSentence
+IfSentence -> si tk_par_izq Expression tk_par_izq tk_llave_izq BodyIfSentence IfElseSentence tk_llave_der
+IfElseSentence -> 
+IfElseSentence -> sino BodyIfSentence
+IfElseSentence -> sino IfSentence
+EvalSentence -> eval tk_par_izq BodyEvalSentence tk_par_izq 
+WhileSentence -> mientras tk_par_izq Expression tk_par_izq tk_llave_izq BodyWhile tk_llave_der
+DoWhileSentence -> repetir BodyWhile hasta tk_par_izq Expression tk_par_izq
+LoopSentence -> desde Assignation hasta LoopStep tk_llave_izq Body tk_llave_der
+LoopStep -> tk_num
+LoopStep -> tk_id
