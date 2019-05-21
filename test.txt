@@ -1,3 +1,26 @@
-funcion_principal
-    imprimir (10+5;
-fin_principal
+tipos
+ALUMNO : registro
+{
+nombre : cadena
+nota : numerico
+}
+ACTA : vector [*] ALUMNO
+var
+A : ACTA
+inicio
+leer_acta (A)
+ordenar_por_nota (A)
+imprimir_acta (A)
+fin
+subrutina imprimir_acta (A : CLASE)
+/*
+Imprimir el nombre y la nota de cada alumno.
+*/
+var
+k : numerico
+inicio
+desde k=1 hasta alen (A)
+{
+imprimir ("\n", A [k].nombre, "\t", A [k].nota)
+}
+fin

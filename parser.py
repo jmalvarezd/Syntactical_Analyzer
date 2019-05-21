@@ -481,11 +481,11 @@ def delta(estadoActual, caracterLeido):
                 allTokens.append(Token(word,startingTokenColumn+1,startingTokenRow+1))
                 return 0
             else:
-                allTokens.append(Token("id",startingTokenColumn+1,startingTokenRow+1, word))
+                allTokens.append(Token("tk_id",startingTokenColumn+1,startingTokenRow+1, word))
                 return 0
         if(len(word) > 32):
             noAvanzar()
-            allTokens.append(Token("id",startingTokenColumn+1,startingTokenRow+1, word))
+            allTokens.append(Token("tk_id",startingTokenColumn+1,startingTokenRow+1, word))
             return 0
         if(caracterLeido.lower() == "á" or caracterLeido.lower() == "é" or caracterLeido.lower() == "í" or caracterLeido.lower() == "ó" or caracterLeido.lower() == "ú"):
             throwError = True
@@ -501,7 +501,7 @@ def delta(estadoActual, caracterLeido):
                 allTokens.append(Token(word,startingTokenColumn+1,startingTokenRow+1))
                 return 0
             else:
-                allTokens.append(Token("id",startingTokenColumn+1,startingTokenRow+1, word))
+                allTokens.append(Token("tk_id",startingTokenColumn+1,startingTokenRow+1, word))
                 return 0
             
     if(estadoActual == 10): #Anterior fue <
@@ -584,39 +584,356 @@ def nextToken():
 
 ### INICIO CODIGO GENERADO
 
-B_esperados = [';']
-A_esperados = ['imprimir']
-S_esperados = ['funcion_principal']
+ListObject_esperados = ['identificador', 'inicio', 'const', 'var', 'tipos']
+Assignation_esperados = ['identificador']
+OtherExpression_esperados = ['+', '-', '*', '/', '%', '<', '>', '<=', '>=', '==', '!=', '(', ')', 'identificador', 'valor_entero', 'valor_cadena', ']', 'fin', 'inicio', 'const', 'var', 'tipos', 'TRUE', 'FALSE', 'and', 'or']
+AssignationVar_esperados = ['identificador']
+Constant_esperados = ['identificador', 'valor_entero', 'valor_cadena', 'TRUE', 'FALSE']
+Operador_esperados = ['+', '-', '*', '/', '%', '<', '>', '<=', '>=', '==', '!=', 'and', 'or']
+OtherObject_esperados = ['identificador', 'registro', 'numerico', 'cadena', 'logico', 'vector']
+Object_esperados = ['identificador']
+Settings_esperados = ['inicio', 'const', 'var', 'tipos']
+ListDeclarations_esperados = ['identificador', 'inicio', 'const', 'var', 'tipos', '{']
+SettingsVar_esperados = ['var']
+Body_esperados = ['identificador', 'fin']
+Tipo_esperados = ['identificador', 'numerico', 'cadena', 'logico', 'vector']
+Sentence_esperados = ['identificador']
+ListAssignations_esperados = ['identificador', 'inicio', 'const', 'var', 'tipos']
+ListExpression_esperados = ['-', '(', ')', 'identificador', 'valor_entero', 'valor_cadena', 'TRUE', 'FALSE']
+TipoVector_esperados = ['-', '*', '(', 'identificador', 'valor_entero', 'valor_cadena', 'TRUE', 'FALSE']
+CallToFunction_esperados = ['identificador']
+ListId_esperados = ['=', ',']
+Expression_esperados = ['-', '(', 'identificador', 'valor_entero', 'valor_cadena', 'TRUE', 'FALSE']
+AssignationConst_esperados = ['identificador']
+SettingsConst_esperados = ['const']
+S_esperados = ['inicio', 'const', 'var', 'tipos']
+SettingsTypes_esperados = ['tipos']
+AssignationTypes_esperados = ['identificador']
+Declaration_esperados = ['identificador']
 
-def B():
-        global B_esperados
-        if(token() == "tk_pyq" ):
-                emparejar("tk_pyq")
-                emparejar("fin_principal")
+def ListObject():
+        global ListObject_esperados
+        if(token() == "tk_id" ):
+                Object()
+                ListObject()
+                return
+        elif(token() == "const" or token() == "var" or token() == "inicio" or token() == "tipos" ):
                 return
         else:
-                error_sintactico(B_esperados)
-def A():
-        global A_esperados
-        if(token() == "imprimir" ):
-                emparejar("imprimir")
-                emparejar("tk_par_izq")
+                error_sintactico(ListObject_esperados)
+def Assignation():
+        global Assignation_esperados
+        if(token() == "tk_id" ):
+                emparejar("tk_id")
+                ListId()
+                emparejar("tk_asig")
+                Expression()
+                return
+        else:
+                error_sintactico(Assignation_esperados)
+def OtherExpression():
+        global OtherExpression_esperados
+        if(token() == "tk_mayorigual" or token() == "tk_mult" or token() == "tk_menor" or token() == "tk_suma" or token() == "tk_mayor" or token() == "tk_mod" or token() == "tk_resta" or token() == "or" or token() == "and" or token() == "tk_division" or token() == "tk_menorigual" or token() == "tk_igualdad" or token() == "tk_distinto" ):
+                Operador()
+                Expression()
+                return
+        elif(token() == "inicio" or token() == "tk_cadena" or token() == "tk_num" or token() == "var" or token() == "const" or token() == "fin" or token() == "tipos" or token() == "tk_resta" or token() == "tk_par_izq" or token() == "TRUE" or token() == "tk_brac_der" or token() == "tk_id" or token() == "tk_par_der" or token() == "FALSE" ):
+                return
+        else:
+                error_sintactico(OtherExpression_esperados)
+def AssignationVar():
+        global AssignationVar_esperados
+        if(token() == "tk_id" ):
+                Declaration()
+                ListDeclarations()
+                return
+        else:
+                error_sintactico(AssignationVar_esperados)
+def Constant():
+        global Constant_esperados
+        if(token() == "tk_num" ):
                 emparejar("tk_num")
+                return
+        elif(token() == "tk_cadena" ):
+                emparejar("tk_cadena")
+                return
+        elif(token() == "tk_id" ):
+                emparejar("tk_id")
+                return
+        elif(token() == "TRUE" ):
+                emparejar("TRUE")
+                return
+        elif(token() == "FALSE" ):
+                emparejar("FALSE")
+                return
+        else:
+                error_sintactico(Constant_esperados)
+def Operador():
+        global Operador_esperados
+        if(token() == "tk_suma" ):
                 emparejar("tk_suma")
-                emparejar("tk_num")
-                emparejar("tk_par_der")
-                B()
+                return
+        elif(token() == "tk_resta" ):
+                emparejar("tk_resta")
+                return
+        elif(token() == "tk_mult" ):
+                emparejar("tk_mult")
+                return
+        elif(token() == "tk_division" ):
+                emparejar("tk_division")
+                return
+        elif(token() == "tk_mod" ):
+                emparejar("tk_mod")
+                return
+        elif(token() == "tk_igualdad" ):
+                emparejar("tk_igualdad")
+                return
+        elif(token() == "tk_distinto" ):
+                emparejar("tk_distinto")
+                return
+        elif(token() == "tk_mayor" ):
+                emparejar("tk_mayor")
+                return
+        elif(token() == "tk_mayorigual" ):
+                emparejar("tk_mayorigual")
+                return
+        elif(token() == "tk_menor" ):
+                emparejar("tk_menor")
+                return
+        elif(token() == "tk_menorigual" ):
+                emparejar("tk_menorigual")
+                return
+        elif(token() == "and" ):
+                emparejar("and")
+                return
+        elif(token() == "or" ):
+                emparejar("or")
                 return
         else:
-                error_sintactico(A_esperados)
+                error_sintactico(Operador_esperados)
+def OtherObject():
+        global OtherObject_esperados
+        if(token() == "tk_id" or token() == "vector" or token() == "logico" or token() == "numerico" or token() == "cadena" ):
+                Tipo()
+                return
+        elif(token() == "registro" ):
+                emparejar("registro")
+                emparejar("tk_llave_izq")
+                AssignationVar()
+                emparejar("tk_llave_der")
+                return
+        else:
+                error_sintactico(OtherObject_esperados)
+def Object():
+        global Object_esperados
+        if(token() == "tk_id" ):
+                emparejar("tk_id")
+                emparejar("tk_dospuntos")
+                OtherObject()
+                return
+        else:
+                error_sintactico(Object_esperados)
+def Settings():
+        global Settings_esperados
+        if(token() == "const" ):
+                SettingsConst()
+                Settings()
+                return
+        elif(token() == "tipos" ):
+                SettingsTypes()
+                Settings()
+                return
+        elif(token() == "var" ):
+                SettingsVar()
+                Settings()
+                return
+        elif(token() == "inicio" ):
+                return
+        else:
+                error_sintactico(Settings_esperados)
+def ListDeclarations():
+        global ListDeclarations_esperados
+        if(token() == "tk_id" ):
+                Declaration()
+                ListDeclarations()
+                return
+        elif(token() == "tk_llave_der" or token() == "inicio" or token() == "var" or token() == "const" or token() == "tipos" ):
+                return
+        else:
+                error_sintactico(ListDeclarations_esperados)
+def SettingsVar():
+        global SettingsVar_esperados
+        if(token() == "var" ):
+                emparejar("var")
+                AssignationVar()
+                return
+        else:
+                error_sintactico(SettingsVar_esperados)
+def Body():
+        global Body_esperados
+        if(token() == "fin" ):
+                return
+        elif(token() == "tk_id" ):
+                Sentence()
+                return
+        else:
+                error_sintactico(Body_esperados)
+def Tipo():
+        global Tipo_esperados
+        if(token() == "numerico" ):
+                emparejar("numerico")
+                return
+        elif(token() == "cadena" ):
+                emparejar("cadena")
+                return
+        elif(token() == "vector" ):
+                emparejar("vector")
+                emparejar("tk_brac_izq")
+                TipoVector()
+                emparejar("tk_brac_der")
+                Tipo()
+                return
+        elif(token() == "logico" ):
+                emparejar("logico")
+                return
+        elif(token() == "tk_id" ):
+                emparejar("tk_id")
+                return
+        else:
+                error_sintactico(Tipo_esperados)
+def Sentence():
+        global Sentence_esperados
+        if(token() == "tk_id" ):
+                Assignation()
+                return
+        elif(token() == "tk_id" ):
+                Declaration()
+                return
+        elif(token() == "tk_id" ):
+                CallToFunction()
+                return
+        else:
+                error_sintactico(Sentence_esperados)
+def ListAssignations():
+        global ListAssignations_esperados
+        if(token() == "tk_id" ):
+                Assignation()
+                ListAssignations()
+                return
+        elif(token() == "const" or token() == "var" or token() == "inicio" or token() == "tipos" ):
+                return
+        else:
+                error_sintactico(ListAssignations_esperados)
+def ListExpression():
+        global ListExpression_esperados
+        if(token() == "tk_cadena" or token() == "tk_num" or token() == "tk_id" or token() == "tk_resta" or token() == "FALSE" or token() == "tk_par_izq" or token() == "TRUE" ):
+                Expression()
+                ListExpression()
+                return
+        elif(token() == "tk_par_der" ):
+                return
+        else:
+                error_sintactico(ListExpression_esperados)
+def TipoVector():
+        global TipoVector_esperados
+        if(token() == "tk_cadena" or token() == "tk_num" or token() == "tk_id" or token() == "tk_resta" or token() == "FALSE" or token() == "tk_par_izq" or token() == "TRUE" ):
+                Expression()
+                return
+        elif(token() == "tk_mult" ):
+                emparejar("tk_mult")
+                return
+        else:
+                error_sintactico(TipoVector_esperados)
+def CallToFunction():
+        global CallToFunction_esperados
+        if(token() == "tk_id" ):
+                emparejar("tk_id")
+                emparejar("tk_par_izq")
+                ListExpression()
+                emparejar("tk_par_der")
+                return
+        else:
+                error_sintactico(CallToFunction_esperados)
+def ListId():
+        global ListId_esperados
+        if(token() == "tk_coma" ):
+                emparejar("tk_coma")
+                emparejar("tk_id")
+                ListId()
+                return
+        elif(token() == "tk_asig" ):
+                return
+        else:
+                error_sintactico(ListId_esperados)
+def Expression():
+        global Expression_esperados
+        if(token() == "tk_resta" ):
+                emparejar("tk_resta")
+                Expression()
+                return
+        elif(token() == "tk_par_izq" ):
+                emparejar("tk_par_izq")
+                Expression()
+                emparejar("tk_par_der")
+                OtherExpression()
+                return
+        elif(token() == "tk_cadena" or token() == "tk_num" or token() == "tk_id" or token() == "FALSE" or token() == "TRUE" ):
+                Constant()
+                OtherExpression()
+                return
+        else:
+                error_sintactico(Expression_esperados)
+def AssignationConst():
+        global AssignationConst_esperados
+        if(token() == "tk_id" ):
+                Assignation()
+                ListAssignations()
+                return
+        else:
+                error_sintactico(AssignationConst_esperados)
+def SettingsConst():
+        global SettingsConst_esperados
+        if(token() == "const" ):
+                emparejar("const")
+                AssignationConst()
+                return
+        else:
+                error_sintactico(SettingsConst_esperados)
 def S():
         global S_esperados
-        if(token() == "funcion_principal" ):
-                emparejar("funcion_principal")
-                A()
+        if(token() == "tipos" or token() == "var" or token() == "inicio" or token() == "const" ):
+                Settings()
+                emparejar("inicio")
+                Body()
+                emparejar("fin")
                 return
         else:
                 error_sintactico(S_esperados)
+def SettingsTypes():
+        global SettingsTypes_esperados
+        if(token() == "tipos" ):
+                emparejar("tipos")
+                AssignationTypes()
+                return
+        else:
+                error_sintactico(SettingsTypes_esperados)
+def AssignationTypes():
+        global AssignationTypes_esperados
+        if(token() == "tk_id" ):
+                Object()
+                ListObject()
+                return
+        else:
+                error_sintactico(AssignationTypes_esperados)
+def Declaration():
+        global Declaration_esperados
+        if(token() == "tk_id" ):
+                emparejar("tk_id")
+                emparejar("tk_dospuntos")
+                Tipo()
+                return
+        else:
+                error_sintactico(Declaration_esperados)
 
 
 

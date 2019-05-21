@@ -58,31 +58,43 @@ traduccion_tk = ["+",
 				"retornar",				
 				"falso",
 				"verdadero",
-				"EOF"]
+				"EOF",
+				"[",
+				"]",
+				"fin",
+				"inicio",
+				"const",
+				"var",
+				"tipos",
+				"registro",
+				"TRUE",
+				"FALSE",
+				"{",
+				"}","and","or","numerico","cadena","logico","vector"]
 
 terminales = [  "tk_suma",
 				"tk_resta",
 				"tk_mult",
-				"tk_div",
+				"tk_division",
 				"tk_mod",
 				"tk_asig",
 				"tk_menor",
 				"tk_mayor",
-				"tk_menor_igual",
-				"tk_mayor_igual",
-				"tk_igual",
+				"tk_menorigual",
+				"tk_mayorigual",
+				"tk_igualdad",
 				"tk_y",
 				"tk_o",
-				"tk_dif",
+				"tk_distinto",
 				"tk_neg",
-				"tk_dosp",
+				"tk_dospuntos",
 				"tk_pyq",
 				"tk_coma",
 				"tk_punto",
 				"tk_par_izq",
 				"tk_par_der",
 				"tk_id",
-				"tk_entero",
+				"tk_num",
 				"tk_real",
 				"tk_caracter",
 				"tk_cadena",
@@ -117,7 +129,19 @@ terminales = [  "tk_suma",
 				"retornar",				
 				"falso",
 				"verdadero",
-				"EOF"]
+				"EOF",
+				"tk_brac_izq",
+				"tk_brac_der",
+				"fin",
+				"inicio",
+				"const",
+				"var",
+				"tipos",
+				"registro",
+				"TRUE",
+				"FALSE",
+				"tk_llave_der",
+				"tk_llave_izq","and","or","numerico","cadena","logico","vector"]
 
 
 def union(primeros, begins):
@@ -240,7 +264,7 @@ for nt in noterminales:
 	predicciones_todas_regla = prediccion[reglas_index[nt][0]]
 	tokens = list(prediccion[reglas_index[nt][0]])
 	for token in tokens[:-1]:
-		funcion += "token() == " + token + " or "
+		funcion += "token() == \"" + token + "\" or "
 	funcion += "token() == \"" + tokens[-1] + "\" ): \n"
 	for token in reglas[reglas_index[nt][0]][2:]:
 		if (token in noterminales):

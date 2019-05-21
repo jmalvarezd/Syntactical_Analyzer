@@ -1,5 +1,5 @@
-
-S -> EoFStart Settings inicio Body fin Subroutines EoFEnd
+62
+S -> Settings inicio Body fin 
 Settings -> SettingsConst Settings
 Settings -> SettingsTypes Settings
 Settings -> SettingsVar Settings
@@ -10,30 +10,32 @@ SettingsVar -> var AssignationVar
 AssignationConst -> Assignation ListAssignations
 AssignationTypes -> Object ListObject
 AssignationVar -> Declaration ListDeclarations
-Object -> 
-Object -> tk_id tk_dospuntos registro tk_llave_izq AssignationVar tk_llave_der
+Object -> tk_id tk_dospuntos OtherObject
+OtherObject -> Tipo
+OtherObject -> registro tk_llave_izq AssignationVar tk_llave_der
 ListObject -> Object ListObject
 ListObject -> 
 Declaration -> tk_id tk_dospuntos Tipo
-Declaration -> 
 ListDeclarations -> Declaration ListDeclarations
 ListDeclarations -> 
 ListAssignations -> Assignation ListAssignations
 ListAssignations -> 
+CallToFunction -> tk_id tk_par_izq ListExpression tk_par_der
 Assignation -> tk_id ListId tk_asig Expression
-Assignation ->
 ListId -> tk_coma tk_id ListId
 ListId ->
 Expression -> tk_resta Expression
-Expression -> tk_par_izq Expression tk_par_der OtraExpression
-Expression -> tk_id LlamadaFuncion OtraExpression
-Expression -> Constante OtraExpression
-OtraExpression -> Operador Expression
-OtraExpression ->
-Constante -> tk_num
-Constante -> tk_cadena
-Constante -> TRUE
-Constante -> FALSE
+Expression -> tk_par_izq Expression tk_par_der OtherExpression
+Expression -> Constant OtherExpression
+OtherExpression -> Operador Expression
+OtherExpression ->
+ListExpression -> Expression ListExpression
+ListExpression -> 
+Constant -> tk_num
+Constant -> tk_cadena
+Constant -> tk_id
+Constant -> TRUE
+Constant -> FALSE
 Operador -> tk_suma
 Operador -> tk_resta
 Operador -> tk_mult
@@ -49,12 +51,14 @@ Operador -> and
 Operador -> or
 Tipo -> numerico
 Tipo -> cadena
-Tipo -> vector tk_brac_izq Expression tk_brac_der Tipo
+Tipo -> vector tk_brac_izq TipoVector tk_brac_der Tipo
+TipoVector -> Expression
+TipoVector -> tk_mult
 Tipo -> logico
+Tipo -> tk_id
 Body -> 
-Body -> Sentences ListSentences
-Sentence -> Assignation
+Body -> Sentence
+Sentence -> tk_id SentenceStartsWithId
+SentenceStartsWithId -> AssignationSeenId 
 Sentence -> Declaration
-Sentence -> Conditional
 Sentence -> CallToFunction
-Sentence -> Loop
