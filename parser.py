@@ -128,7 +128,6 @@ def emparejar(tk):
 		_token = nextToken()
 	else:
 		error_sintactico([tk])
-	#print(_token.to_str()) ### PARA DEBUG
 		
 i = -1
 
@@ -498,7 +497,8 @@ def nextToken():
                 return None
         return allTokens[i]
 
-### INICIO CODIGO GENERADO
+### CODIGO GENERADO
+
 TipoVector_esperados = ['-', '*', '(', 'identificador', 'valor_numerico', 'valor_cadena', 'TRUE', 'FALSE', '}']
 Declaration_esperados = ['identificador']
 ListDeclarations_esperados = ['identificador', 'inicio', 'const', 'var', 'tipos', '{', 'programa']
@@ -1293,7 +1293,6 @@ def BodyWhile():
                 error_sintactico(BodyWhile_esperados)
 
 
-### FIN CODIGO GENERADO
 
 
 c = obtenerCaracterSiguiente()
