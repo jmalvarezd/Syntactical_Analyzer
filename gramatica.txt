@@ -1,5 +1,5 @@
-90
-S -> Settings inicio Body fin 
+109
+S -> Settings inicio Body fin ListSubrutine
 Settings -> SettingsConst Settings
 Settings -> SettingsTypes Settings
 Settings -> SettingsVar Settings
@@ -15,12 +15,16 @@ OtherObject -> Tipo
 OtherObject -> registro tk_llave_izq AssignationVar tk_llave_der
 ListObject -> Object ListObject
 ListObject -> 
-Declaration -> tk_id tk_dospuntos Tipo
+Declaration -> tk_id ListId tk_dospuntos Tipo
 ListDeclarations -> Declaration ListDeclarations
 ListDeclarations -> 
 ListAssignations -> Assignation ListAssignations
 ListAssignations -> 
-CallToFunction -> tk_id tk_par_izq ListExpression tk_par_der
+CallToFunction -> tk_id CallToFunctionSeenId
+FunctionParams -> 
+FunctionParams -> Expression FunctionParamsNotEmpty
+FunctionParamsNotEmpty -> tk_coma Expression FunctionParamsNotEmpty
+FunctionParamsNotEmpty -> 
 Assignation -> tk_id ListId tk_asig Expression
 ListId -> tk_coma tk_id ListId
 ListId ->
@@ -29,11 +33,11 @@ Expression -> tk_par_izq Expression tk_par_der OtherExpression
 Expression -> Constant OtherExpression
 OtherExpression -> Operador Expression
 OtherExpression ->
-ListExpression -> Expression ListExpression
-ListExpression -> 
 Constant -> tk_num
 Constant -> tk_cadena
-Constant -> tk_id
+Constant -> tk_id ConstantSeenId
+ConstantSeenId -> CallToFunctionSeenId
+ConstantSeenId -> 
 Constant -> TRUE
 Constant -> FALSE
 Operador -> tk_suma
@@ -49,6 +53,7 @@ Operador -> tk_menor
 Operador -> tk_menorigual
 Operador -> and
 Operador -> or
+Operador -> tk_exp
 Tipo -> numerico
 Tipo -> cadena
 Tipo -> vector tk_brac_izq TipoVector tk_brac_der Tipo
@@ -56,36 +61,50 @@ TipoVector -> Expression
 TipoVector -> tk_mult
 Tipo -> logico
 Tipo -> tk_id
-ListOfSentences -> Sentence ListOfSentences
+ListOfSentences -> Sentence ListOfSentencesHasSentence
 ListOfSentences -> 
+ListOfSentencesHasSentence -> tk_pyq ListOfSentences
+ListOfSentencesHasSentence -> ListOfSentences
 Body -> Sentence ListOfSentences
 BodyIfSentence -> Body BodyIfSentence
 BodyIfSentence -> 
 BodyWhile -> Body BodyWhile
 BodyWhile -> 
 BodyEvalSentence -> BodyCase BodyIfElseCase
-BodyCase -> caso tk_par_izq Expression tk_par_izq Body BodyCase2
-BodyCase2 -> caso tk_par_izq Expression tk_par_izq Body BodyCase2
+BodyCase -> caso tk_par_izq Expression tk_par_der Body BodyCase2
+BodyCase2 -> caso tk_par_izq Expression tk_par_der Body BodyCase2
 BodyCase2 -> 
 BodyIfElseCase -> 
 BodyIfElseCase -> sino Body
 Sentence -> tk_id SentenceStartsWithId
 SentenceStartsWithId -> AssignationSeenId 
 SentenceStartsWithId -> CallToFunctionSeenId
-CallToFunctionSeenId -> tk_par_izq ListExpression tk_par_der
+CallToFunctionSeenId -> tk_par_izq FunctionParams tk_par_der
 AssignationSeenId -> ListId tk_asig Expression
-Sentence -> IfSentence
+Sentence -> IfSentenceStart
 Sentence -> WhileSentence
 Sentence -> DoWhileSentence
 Sentence -> EvalSentence
 Sentence -> LoopSentence
-IfSentence -> si tk_par_izq Expression tk_par_der tk_llave_izq BodyIfSentence IfElseSentence tk_llave_der
-IfElseSentence -> 
+IfSentenceStart -> si tk_par_izq Expression tk_par_der IfSentence
+IfSentence -> tk_llave_izq BodyIfSentence IfElseSentence tk_llave_der
+IfSentence -> Assignation 
 IfElseSentence -> sino BodyIfSentence
-IfElseSentence -> sino IfSentence
-EvalSentence -> eval tk_par_izq BodyEvalSentence tk_par_izq 
-WhileSentence -> mientras tk_par_izq Expression tk_par_izq tk_llave_izq BodyWhile tk_llave_der
-DoWhileSentence -> repetir BodyWhile hasta tk_par_izq Expression tk_par_izq
+IfElseSentence -> 
+EvalSentence -> eval tk_par_izq BodyEvalSentence tk_par_der 
+WhileSentence -> mientras tk_par_izq Expression tk_par_der tk_llave_izq BodyWhile tk_llave_der
+DoWhileSentence -> repetir BodyWhile hasta tk_par_izq Expression tk_par_der
 LoopSentence -> desde Assignation hasta LoopStep tk_llave_izq Body tk_llave_der
 LoopStep -> tk_num
 LoopStep -> tk_id
+ListSubrutine -> Subrutine ListSubrutine
+ListSubrutine -> 
+Subrutine -> SubrutineStart S
+SubrutineStart -> subrutina FunctionDeclaration OptionalReturn
+OptionalReturn -> retorna Tipo
+OptionalReturn -> 
+FunctionDeclaration -> tk_id tk_par_izq FunctionDeclarationParams tk_par_der
+FunctionDeclarationParams -> 
+FunctionDeclarationParams -> Declaration FunctionDeclarationParamsNotEmpty
+FunctionDeclarationParamsNotEmpty -> tk_coma Declaration FunctionDeclarationParamsNotEmpty
+FunctionDeclarationParamsNotEmpty -> 

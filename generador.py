@@ -22,6 +22,7 @@ traduccion_tk = ["+",
 				".",
 				"(",
 				")",
+				"^",
 				"identificador",
 				"valor_entero",
 				"valor_real",
@@ -70,7 +71,7 @@ traduccion_tk = ["+",
 				"TRUE",
 				"FALSE",
 				"{",
-				"}","and","or","numerico","cadena","logico","vector", "eval", "repetir", "hasta", "desde","imprimir"]
+				"}","and","or","numerico","cadena","logico","vector", "eval", "repetir", "hasta", "desde","subrutina","retorna"]
 
 terminales = [  "tk_suma",
 				"tk_resta",
@@ -93,6 +94,7 @@ terminales = [  "tk_suma",
 				"tk_punto",
 				"tk_par_izq",
 				"tk_par_der",
+				"tk_exp",
 				"tk_id",
 				"tk_num",
 				"tk_real",
@@ -141,7 +143,7 @@ terminales = [  "tk_suma",
 				"TRUE",
 				"FALSE",
 				"tk_llave_der",
-				"tk_llave_izq","and","or","numerico","cadena","logico","vector", "eval", "repetir", "hasta", "desde","imprimir"]
+				"tk_llave_izq","and","or","numerico","cadena","logico","vector", "eval", "repetir", "hasta", "desde","subrutina","retorna"]
 
 
 def union(primeros, begins):
@@ -281,7 +283,8 @@ for nt in noterminales:
 		tokens = list(prediccion[indx])
 		for token in tokens[:-1]:
 			funcion += "token() == \"" + token + "\" or "
-		funcion += "token() == \"" + tokens[-1] + "\" ): \n"
+		print(tokens)
+		funcion += "token() == \"" + tokens[-1] + "\" ): \n"	
 		for token in reglas[indx][2:]:
 			if (token in noterminales):
 				funcion += "\t\t" + token +  "()\n"
