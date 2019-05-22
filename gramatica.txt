@@ -1,9 +1,11 @@
-118
+126
 S -> Settings inicio Body fin ListSubrutine
+Settings -> SettingsName Settings
 Settings -> SettingsConst Settings
 Settings -> SettingsTypes Settings
 Settings -> SettingsVar Settings
 Settings ->  
+SettingsName -> programa tk_id
 SettingsConst -> const AssignationConst
 SettingsTypes -> tipos AssignationTypes
 SettingsVar -> var AssignationVar
@@ -25,14 +27,16 @@ FunctionParamsNotEmpty -> tk_coma Expression FunctionParamsNotEmpty
 FunctionParamsNotEmpty -> 
 Assignation -> Expression ListId tk_asig Expression
 ListId -> tk_coma Expression ListId
+ListId -> tk_punto Expression ListId
 ListId ->
 ListExpression -> 
 ListExpression -> Expression ListExpressionNotEmpty
 ListExpressionNotEmpty -> tk_coma Expression ListExpressionNotEmpty
 ListExpressionNotEmpty -> 
-Expression -> tk_resta Expression
-Expression -> tk_par_izq Expression tk_par_der 
-Expression -> tk_llave_izq ListExpression tk_llave_der
+ExpressionLong -> Expression OtherExpression 
+Expression -> tk_resta Expression OtherExpression
+Expression -> tk_par_izq Expression tk_par_der OtherExpression
+Expression -> tk_llave_izq ListExpression tk_llave_der OtherExpression
 Expression -> Constant OtherExpression
 OtherExpression -> Operador Expression
 OtherExpression -> tk_brac_izq Expression tk_brac_der 
@@ -80,8 +84,8 @@ BodyIfSentence ->
 BodyWhile -> Body BodyWhile
 BodyWhile -> 
 BodyEvalSentence -> BodyCase BodyIfElseCase
-BodyCase -> caso tk_par_izq Expression tk_par_der Body BodyCase2
-BodyCase2 -> caso tk_par_izq Expression tk_par_der Body BodyCase2
+BodyCase -> caso tk_par_izq ExpressionLong tk_par_der Assignation BodyCase2
+BodyCase2 -> caso tk_par_izq ExpressionLong tk_par_der Assignation BodyCase2
 BodyCase2 -> 
 BodyIfElseCase -> 
 BodyIfElseCase -> sino Body
@@ -96,24 +100,28 @@ Sentence -> WhileSentence
 Sentence -> DoWhileSentence
 Sentence -> EvalSentence
 Sentence -> LoopSentence
-IfSentenceStart -> si tk_par_izq Expression tk_par_der IfSentence
+IfSentenceStart -> si tk_par_izq ExpressionLong tk_par_der IfSentence
 IfSentence -> tk_llave_izq BodyIfSentence IfElseSentence tk_llave_der
-IfSentence -> Assignation 
-IfElseSentence -> sino BodyIfSentence
+IfSentence -> Assignation
+IfElseSentence -> sino BodyIfSentence IfElseSentence
 IfElseSentence -> 
 EvalSentence -> eval tk_llave_izq BodyEvalSentence tk_llave_der 
 WhileSentence -> mientras tk_par_izq Expression tk_par_der tk_llave_izq BodyWhile tk_llave_der
 DoWhileSentence -> repetir BodyWhile hasta tk_par_izq Expression tk_par_der
-LoopSentence -> desde Assignation hasta LoopStep tk_llave_izq Body tk_llave_der
+LoopSentence -> desde Assignation hasta LoopStep OptionalStep tk_llave_izq Body tk_llave_der
+OptionalStep -> paso Expression
+OptionalStep -> 
 LoopStep -> Constant
 ListSubrutine -> Subrutine ListSubrutine
 ListSubrutine -> 
 Subrutine -> SubrutineStart S
 SubrutineStart -> subrutina FunctionDeclaration OptionalReturn
-OptionalReturn -> retorna Tipo
+OptionalReturn -> tk_id Tipo
 OptionalReturn -> 
 FunctionDeclaration -> tk_id tk_par_izq FunctionDeclarationParams tk_par_der
+OptionalRef -> ref 
+OptionalRef -> 
 FunctionDeclarationParams -> 
-FunctionDeclarationParams -> Declaration FunctionDeclarationParamsNotEmpty
-FunctionDeclarationParamsNotEmpty -> tk_coma Declaration FunctionDeclarationParamsNotEmpty
+FunctionDeclarationParams -> OptionalRef Declaration FunctionDeclarationParamsNotEmpty
+FunctionDeclarationParamsNotEmpty -> tk_pyq OptionalRef Declaration FunctionDeclarationParamsNotEmpty
 FunctionDeclarationParamsNotEmpty -> 
