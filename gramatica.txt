@@ -1,4 +1,4 @@
-86
+90
 S -> Settings inicio Body fin 
 Settings -> SettingsConst Settings
 Settings -> SettingsTypes Settings
@@ -56,7 +56,9 @@ TipoVector -> Expression
 TipoVector -> tk_mult
 Tipo -> logico
 Tipo -> tk_id
-Body -> 
+ListOfSentences -> Sentence ListOfSentences
+ListOfSentences -> 
+Body -> Sentence ListOfSentences
 BodyIfSentence -> Body BodyIfSentence
 BodyIfSentence -> 
 BodyWhile -> Body BodyWhile
@@ -67,17 +69,17 @@ BodyCase2 -> caso tk_par_izq Expression tk_par_izq Body BodyCase2
 BodyCase2 -> 
 BodyIfElseCase -> 
 BodyIfElseCase -> sino Body
-Body -> Sentence
 Sentence -> tk_id SentenceStartsWithId
 SentenceStartsWithId -> AssignationSeenId 
-Sentence -> Declaration
-Sentence -> CallToFunction
+SentenceStartsWithId -> CallToFunctionSeenId
+CallToFunctionSeenId -> tk_par_izq ListExpression tk_par_der
+AssignationSeenId -> ListId tk_asig Expression
 Sentence -> IfSentence
 Sentence -> WhileSentence
 Sentence -> DoWhileSentence
 Sentence -> EvalSentence
 Sentence -> LoopSentence
-IfSentence -> si tk_par_izq Expression tk_par_izq tk_llave_izq BodyIfSentence IfElseSentence tk_llave_der
+IfSentence -> si tk_par_izq Expression tk_par_der tk_llave_izq BodyIfSentence IfElseSentence tk_llave_der
 IfElseSentence -> 
 IfElseSentence -> sino BodyIfSentence
 IfElseSentence -> sino IfSentence

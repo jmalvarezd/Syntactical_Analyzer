@@ -70,7 +70,7 @@ traduccion_tk = ["+",
 				"TRUE",
 				"FALSE",
 				"{",
-				"}","and","or","numerico","cadena","logico","vector", "eval", "repetir", "hasta", "desde"]
+				"}","and","or","numerico","cadena","logico","vector", "eval", "repetir", "hasta", "desde","imprimir"]
 
 terminales = [  "tk_suma",
 				"tk_resta",
@@ -141,7 +141,7 @@ terminales = [  "tk_suma",
 				"TRUE",
 				"FALSE",
 				"tk_llave_der",
-				"tk_llave_izq","and","or","numerico","cadena","logico","vector", "eval", "repetir", "hasta", "desde"]
+				"tk_llave_izq","and","or","numerico","cadena","logico","vector", "eval", "repetir", "hasta", "desde","imprimir"]
 
 
 def union(primeros, begins):

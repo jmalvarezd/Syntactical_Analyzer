@@ -3,6 +3,6 @@ si ( 4 >= 5 )
 {
   imprimir ("\nNo pueden ser los lados de un triángulo")
 sino
-  imprimir ("\nPueden formar un triángulo")
+  imprimir ("\nPueden formar un triángulo"
 }
 fin
