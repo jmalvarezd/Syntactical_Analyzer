@@ -453,61 +453,84 @@ def nextToken():
         return allTokens[i]
 
 ### INICIO CODIGO GENERADO
-BodyCase_esperados = ['caso']
-SubrutineStart_esperados = ['subrutina']
-EvalSentence_esperados = ['eval']
-IfSentence_esperados = ['identificador', '}']
-SettingsTypes_esperados = ['tipos']
-FunctionDeclaration_esperados = ['identificador']
-CallToFunctionSeenId_esperados = ['(']
-AssignationSeenId_esperados = ['=', ',']
-IfElseSentence_esperados = ['sino', '{']
-ListDeclarations_esperados = ['identificador', 'inicio', 'const', 'var', 'tipos', '{']
-AssignationTypes_esperados = ['identificador']
-FunctionParams_esperados = ['-', '(', ')', 'identificador', 'valor_entero', 'valor_cadena', 'TRUE', 'FALSE']
-SentenceStartsWithId_esperados = ['=', ',', '(']
-Settings_esperados = ['inicio', 'const', 'var', 'tipos']
-Object_esperados = ['identificador']
-TipoVector_esperados = ['-', '*', '(', 'identificador', 'valor_entero', 'valor_cadena', 'TRUE', 'FALSE']
-ConstantSeenId_esperados = ['+', '-', '*', '/', '%', '<', '>', '<=', '>=', '==', '!=', ';', ',', '(', ')', '^', 'identificador', 'si', 'sino', 'mientras', 'caso', ']', 'fin', 'inicio', 'const', 'var', 'tipos', '{', 'and', 'or', 'eval', 'repetir', 'hasta', 'desde']
-AssignationConst_esperados = ['identificador']
-AssignationVar_esperados = ['identificador']
-FunctionDeclarationParams_esperados = [')', 'identificador']
-DoWhileSentence_esperados = ['repetir']
-Constant_esperados = ['identificador', 'valor_entero', 'valor_cadena', 'TRUE', 'FALSE']
-FunctionDeclarationParamsNotEmpty_esperados = [',', ')']
-OptionalReturn_esperados = ['inicio', 'const', 'var', 'tipos', 'retorna']
-IfSentenceStart_esperados = ['si']
-Sentence_esperados = ['identificador', 'si', 'mientras', 'eval', 'repetir', 'desde']
-OtherObject_esperados = ['identificador', 'registro', 'numerico', 'cadena', 'logico', 'vector']
-ListOfSentencesHasSentence_esperados = [';', ')', 'identificador', 'si', 'sino', 'mientras', 'caso', 'fin', '{', 'eval', 'repetir', 'hasta', 'desde']
-BodyWhile_esperados = ['identificador', 'si', 'mientras', '{', 'eval', 'repetir', 'hasta', 'desde']
-Expression_esperados = ['-', '(', 'identificador', 'valor_entero', 'valor_cadena', 'TRUE', 'FALSE']
-ListSubrutine_esperados = ['EOF', 'subrutina']
-SettingsVar_esperados = ['var']
-CallToFunction_esperados = ['identificador']
-LoopStep_esperados = ['identificador', 'valor_entero']
-BodyEvalSentence_esperados = ['caso']
-BodyCase2_esperados = [')', 'sino', 'caso']
-BodyIfElseCase_esperados = [')', 'sino']
-LoopSentence_esperados = ['desde']
-Body_esperados = ['identificador', 'si', 'mientras', 'eval', 'repetir', 'desde']
-ListObject_esperados = ['identificador', 'inicio', 'const', 'var', 'tipos']
-OtherExpression_esperados = ['+', '-', '*', '/', '%', '<', '>', '<=', '>=', '==', '!=', ';', ',', ')', '^', 'identificador', 'si', 'sino', 'mientras', 'caso', ']', 'fin', 'inicio', 'const', 'var', 'tipos', '{', 'and', 'or', 'eval', 'repetir', 'hasta', 'desde']
-Subrutine_esperados = ['subrutina']
-BodyIfSentence_esperados = ['identificador', 'si', 'sino', 'mientras', '{', 'eval', 'repetir', 'desde']
-ListOfSentences_esperados = [')', 'identificador', 'si', 'sino', 'mientras', 'caso', 'fin', '{', 'eval', 'repetir', 'hasta', 'desde']
-ListAssignations_esperados = ['identificador', 'inicio', 'const', 'var', 'tipos']
-ListId_esperados = ['=', ':', ',']
-WhileSentence_esperados = ['mientras']
-Declaration_esperados = ['identificador']
-FunctionParamsNotEmpty_esperados = [',', ')']
-SettingsConst_esperados = ['const']
-Assignation_esperados = ['identificador']
-S_esperados = ['inicio', 'const', 'var', 'tipos']
-Tipo_esperados = ['identificador', 'numerico', 'cadena', 'logico', 'vector']
-Operador_esperados = ['+', '-', '*', '/', '%', '<', '>', '<=', '>=', '==', '!=', '^', 'and', 'or']
 
+FunctionDeclaration_esperados = ['identificador']
+ListDeclarations_esperados = ['identificador', 'inicio', 'const', 'var', 'tipos', '{']
+BodyCase_esperados = ['caso']
+ListOfSentencesHasSentence_esperados = [';', 'identificador', 'si', 'sino', 'mientras', 'caso', 'fin', '{', 'eval', 'repetir', 'hasta', 'desde']
+Sentence_esperados = ['identificador', 'si', 'mientras', 'eval', 'repetir', 'desde']
+FunctionDeclarationParamsNotEmpty_esperados = [',', ')']
+AssignationTypes_esperados = ['identificador']
+CallToFunction_esperados = ['identificador']
+OptionalReturn_esperados = ['inicio', 'const', 'var', 'tipos', 'retorna']
+Declaration_esperados = ['identificador']
+ListTipoVector_esperados = [',', ']']
+SettingsVar_esperados = ['var']
+BodyIfSentence_esperados = ['identificador', 'si', 'sino', 'mientras', '{', 'eval', 'repetir', 'desde']
+BodyIfElseCase_esperados = ['sino', '{']
+Operador_esperados = ['+', '-', '*', '/', '%', '<', '>', '<=', '>=', '==', '!=', '^', 'and', 'or']
+S_esperados = ['inicio', 'const', 'var', 'tipos']
+SentenceStartsWithId_esperados = ['=', ',', '(', '[']
+SettingsTypes_esperados = ['tipos']
+LoopSentence_esperados = ['desde']
+BodyCase2_esperados = ['sino', 'caso', '{']
+IfSentenceStart_esperados = ['si']
+FunctionParams_esperados = ['-', '(', ')', 'identificador', 'valor_numerico', 'valor_cadena', 'TRUE', 'FALSE', '}']
+AssignationSeenId_esperados = ['=', ',', '[']
+DoWhileSentence_esperados = ['repetir']
+ConstantSeenId_esperados = ['+', '-', '*', '/', '%', '=', '<', '>', '<=', '>=', '==', '!=', ':', ';', ',', '.', '(', ')', '^', 'identificador', 'valor_numerico', 'valor_cadena', 'si', 'sino', 'mientras', 'caso', '[', ']', 'fin', 'inicio', 'const', 'var', 'tipos', 'TRUE', 'FALSE', '{', '}', 'and', 'or', 'eval', 'repetir', 'hasta', 'desde']
+Expression_esperados = ['-', '(', 'identificador', 'valor_numerico', 'valor_cadena', 'TRUE', 'FALSE', '}']
+WhileSentence_esperados = ['mientras']
+Assignation_esperados = ['-', '(', 'identificador', 'valor_numerico', 'valor_cadena', 'TRUE', 'FALSE', '}']
+Subrutine_esperados = ['subrutina']
+Object_esperados = ['identificador']
+IfElseSentence_esperados = ['sino', '{']
+AssignationVar_esperados = ['identificador']
+ListId_esperados = ['=', ':', ',']
+SettingsConst_esperados = ['const']
+ListObject_esperados = ['identificador', 'inicio', 'const', 'var', 'tipos']
+Tipo_esperados = ['identificador', 'registro', 'numerico', 'cadena', 'logico', 'vector', 'matriz']
+CallToFunctionSeenId_esperados = ['(']
+OtherExpression_esperados = ['+', '-', '*', '/', '%', '=', '<', '>', '<=', '>=', '==', '!=', ':', ';', ',', '(', ')', '^', 'identificador', 'valor_numerico', 'valor_cadena', 'si', 'sino', 'mientras', 'caso', '[', ']', 'fin', 'inicio', 'const', 'var', 'tipos', 'TRUE', 'FALSE', '{', '}', 'and', 'or', 'eval', 'repetir', 'hasta', 'desde']
+LoopStep_esperados = ['identificador', 'valor_numerico', 'valor_cadena', 'TRUE', 'FALSE']
+EvalSentence_esperados = ['eval']
+Constant_esperados = ['identificador', 'valor_numerico', 'valor_cadena', 'TRUE', 'FALSE']
+FunctionParamsNotEmpty_esperados = [',', ')']
+BodyWhile_esperados = ['identificador', 'si', 'mientras', '{', 'eval', 'repetir', 'hasta', 'desde']
+AssignationConst_esperados = ['-', '(', 'identificador', 'valor_numerico', 'valor_cadena', 'TRUE', 'FALSE', '}']
+TipoVector_esperados = ['-', '*', '(', 'identificador', 'valor_numerico', 'valor_cadena', 'TRUE', 'FALSE', '}']
+ListSubrutine_esperados = ['EOF', 'subrutina']
+Body_esperados = ['identificador', 'si', 'mientras', 'eval', 'repetir', 'desde']
+Settings_esperados = ['inicio', 'const', 'var', 'tipos']
+SubrutineStart_esperados = ['subrutina']
+ListOfSentences_esperados = ['identificador', 'si', 'sino', 'mientras', 'caso', 'fin', '{', 'eval', 'repetir', 'hasta', 'desde']
+ListExpressionNotEmpty_esperados = [',', '{']
+ListAssignations_esperados = ['-', '(', 'identificador', 'valor_numerico', 'valor_cadena', 'inicio', 'const', 'var', 'tipos', 'TRUE', 'FALSE', '}']
+FunctionDeclarationParams_esperados = [')', 'identificador']
+ListExpression_esperados = ['-', '(', 'identificador', 'valor_numerico', 'valor_cadena', 'TRUE', 'FALSE', '{', '}']
+BodyEvalSentence_esperados = ['caso']
+IfSentence_esperados = ['-', '(', 'identificador', 'valor_numerico', 'valor_cadena', 'TRUE', 'FALSE', '}']
+
+def FunctionDeclaration():
+        global FunctionDeclaration_esperados
+        if(token() == "tk_id" ):
+                emparejar("tk_id")
+                emparejar("tk_par_izq")
+                FunctionDeclarationParams()
+                emparejar("tk_par_der")
+                return
+        else:
+                error_sintactico(FunctionDeclaration_esperados)
+def ListDeclarations():
+        global ListDeclarations_esperados
+        if(token() == "tk_id" ):
+                Declaration()
+                ListDeclarations()
+                return
+        elif(token() == "tk_llave_der" or token() == "var" or token() == "inicio" or token() == "const" or token() == "tipos" ):
+                return
+        else:
+                error_sintactico(ListDeclarations_esperados)
 def BodyCase():
         global BodyCase_esperados
         if(token() == "caso" ):
@@ -520,260 +543,17 @@ def BodyCase():
                 return
         else:
                 error_sintactico(BodyCase_esperados)
-def SubrutineStart():
-        global SubrutineStart_esperados
-        if(token() == "subrutina" ):
-                emparejar("subrutina")
-                FunctionDeclaration()
-                OptionalReturn()
+def ListOfSentencesHasSentence():
+        global ListOfSentencesHasSentence_esperados
+        if(token() == "tk_pyq" ):
+                emparejar("tk_pyq")
+                ListOfSentences()
+                return
+        elif(token() == "tk_id" or token() == "repetir" or token() == "sino" or token() == "hasta" or token() == "tk_llave_der" or token() == "si" or token() == "eval" or token() == "fin" or token() == "desde" or token() == "caso" or token() == "mientras" ):
+                ListOfSentences()
                 return
         else:
-                error_sintactico(SubrutineStart_esperados)
-def EvalSentence():
-        global EvalSentence_esperados
-        if(token() == "eval" ):
-                emparejar("eval")
-                emparejar("tk_par_izq")
-                BodyEvalSentence()
-                emparejar("tk_par_der")
-                return
-        else:
-                error_sintactico(EvalSentence_esperados)
-def IfSentence():
-        global IfSentence_esperados
-        if(token() == "tk_llave_izq" ):
-                emparejar("tk_llave_izq")
-                BodyIfSentence()
-                IfElseSentence()
-                emparejar("tk_llave_der")
-                return
-        elif(token() == "tk_id" ):
-                Assignation()
-                return
-        else:
-                error_sintactico(IfSentence_esperados)
-def SettingsTypes():
-        global SettingsTypes_esperados
-        if(token() == "tipos" ):
-                emparejar("tipos")
-                AssignationTypes()
-                return
-        else:
-                error_sintactico(SettingsTypes_esperados)
-def FunctionDeclaration():
-        global FunctionDeclaration_esperados
-        if(token() == "tk_id" ):
-                emparejar("tk_id")
-                emparejar("tk_par_izq")
-                FunctionDeclarationParams()
-                emparejar("tk_par_der")
-                return
-        else:
-                error_sintactico(FunctionDeclaration_esperados)
-def CallToFunctionSeenId():
-        global CallToFunctionSeenId_esperados
-        if(token() == "tk_par_izq" ):
-                emparejar("tk_par_izq")
-                FunctionParams()
-                emparejar("tk_par_der")
-                return
-        else:
-                error_sintactico(CallToFunctionSeenId_esperados)
-def AssignationSeenId():
-        global AssignationSeenId_esperados
-        if(token() == "tk_asig" or token() == "tk_coma" ):
-                ListId()
-                emparejar("tk_asig")
-                Expression()
-                return
-        else:
-                error_sintactico(AssignationSeenId_esperados)
-def IfElseSentence():
-        global IfElseSentence_esperados
-        if(token() == "sino" ):
-                print("emparejado sino")
-                emparejar("sino")
-                print("start another body")
-                BodyIfSentence()
-                return
-        elif(token() == "tk_llave_der" ):
-                return
-        else:
-                error_sintactico(IfElseSentence_esperados)
-def ListDeclarations():
-        global ListDeclarations_esperados
-        if(token() == "tk_id" ):
-                Declaration()
-                ListDeclarations()
-                return
-        elif(token() == "tk_llave_der" or token() == "const" or token() == "inicio" or token() == "var" or token() == "tipos" ):
-                return
-        else:
-                error_sintactico(ListDeclarations_esperados)
-def AssignationTypes():
-        global AssignationTypes_esperados
-        if(token() == "tk_id" ):
-                Object()
-                ListObject()
-                return
-        else:
-                error_sintactico(AssignationTypes_esperados)
-def FunctionParams():
-        global FunctionParams_esperados
-        if(token() == "tk_par_der" ):
-                return
-        elif(token() == "tk_cadena" or token() == "tk_resta" or token() == "FALSE" or token() == "tk_num" or token() == "TRUE" or token() == "tk_par_izq" or token() == "tk_id" ):
-                Expression()
-                FunctionParamsNotEmpty()
-                return
-        else:
-                error_sintactico(FunctionParams_esperados)
-def SentenceStartsWithId():
-        global SentenceStartsWithId_esperados
-        if(token() == "tk_asig" or token() == "tk_coma" ):
-                AssignationSeenId()
-                return
-        elif(token() == "tk_par_izq" ):
-                CallToFunctionSeenId()
-                return
-        else:
-                error_sintactico(SentenceStartsWithId_esperados)
-def Settings():
-        global Settings_esperados
-        if(token() == "const" ):
-                SettingsConst()
-                Settings()
-                return
-        elif(token() == "tipos" ):
-                SettingsTypes()
-                Settings()
-                return
-        elif(token() == "var" ):
-                SettingsVar()
-                Settings()
-                return
-        elif(token() == "inicio" ):
-                return
-        else:
-                error_sintactico(Settings_esperados)
-def Object():
-        global Object_esperados
-        if(token() == "tk_id" ):
-                emparejar("tk_id")
-                emparejar("tk_dospuntos")
-                OtherObject()
-                return
-        else:
-                error_sintactico(Object_esperados)
-def TipoVector():
-        global TipoVector_esperados
-        if(token() == "tk_cadena" or token() == "tk_resta" or token() == "FALSE" or token() == "tk_num" or token() == "TRUE" or token() == "tk_par_izq" or token() == "tk_id" ):
-                Expression()
-                return
-        elif(token() == "tk_mult" ):
-                emparejar("tk_mult")
-                return
-        else:
-                error_sintactico(TipoVector_esperados)
-def ConstantSeenId():
-        global ConstantSeenId_esperados
-        if(token() == "tk_par_izq" ):
-                CallToFunctionSeenId()
-                return
-        elif(token() == "hasta" or token() == "desde" or token() == "tk_distinto" or token() == "tk_brac_der" or token() == "const" or token() == "fin" or token() == "tk_igualdad" or token() == "tk_mod" or token() == "eval" or token() == "tipos" or token() == "and" or token() == "tk_mayor" or token() == "tk_mayorigual" or token() == "tk_resta" or token() == "tk_pyq" or token() == "caso" or token() == "or" or token() == "inicio" or token() == "tk_mult" or token() == "tk_suma" or token() == "mientras" or token() == "tk_id" or token() == "tk_par_der" or token() == "tk_menorigual" or token() == "si" or token() == "tk_llave_der" or token() == "var" or token() == "tk_menor" or token() == "sino" or token() == "tk_coma" or token() == "tk_division" or token() == "repetir" or token() == "tk_exp" ):
-                return
-        else:
-                error_sintactico(ConstantSeenId_esperados)
-def AssignationConst():
-        global AssignationConst_esperados
-        if(token() == "tk_id" ):
-                Assignation()
-                ListAssignations()
-                return
-        else:
-                error_sintactico(AssignationConst_esperados)
-def AssignationVar():
-        global AssignationVar_esperados
-        if(token() == "tk_id" ):
-                Declaration()
-                ListDeclarations()
-                return
-        else:
-                error_sintactico(AssignationVar_esperados)
-def FunctionDeclarationParams():
-        global FunctionDeclarationParams_esperados
-        if(token() == "tk_par_der" ):
-                return
-        elif(token() == "tk_id" ):
-                Declaration()
-                FunctionDeclarationParamsNotEmpty()
-                return
-        else:
-                error_sintactico(FunctionDeclarationParams_esperados)
-def DoWhileSentence():
-        global DoWhileSentence_esperados
-        if(token() == "repetir" ):
-                emparejar("repetir")
-                BodyWhile()
-                emparejar("hasta")
-                emparejar("tk_par_izq")
-                Expression()
-                emparejar("tk_par_der")
-                return
-        else:
-                error_sintactico(DoWhileSentence_esperados)
-def Constant():
-        global Constant_esperados
-        if(token() == "tk_num" ):
-                emparejar("tk_num")
-                return
-        elif(token() == "tk_cadena" ):
-                emparejar("tk_cadena")
-                return
-        elif(token() == "tk_id" ):
-                emparejar("tk_id")
-                ConstantSeenId()
-                return
-        elif(token() == "TRUE" ):
-                emparejar("TRUE")
-                return
-        elif(token() == "FALSE" ):
-                emparejar("FALSE")
-                return
-        else:
-                error_sintactico(Constant_esperados)
-def FunctionDeclarationParamsNotEmpty():
-        global FunctionDeclarationParamsNotEmpty_esperados
-        if(token() == "tk_coma" ):
-                emparejar("tk_coma")
-                Declaration()
-                FunctionDeclarationParamsNotEmpty()
-                return
-        elif(token() == "tk_par_der" ):
-                return
-        else:
-                error_sintactico(FunctionDeclarationParamsNotEmpty_esperados)
-def OptionalReturn():
-        global OptionalReturn_esperados
-        if(token() == "retorna" ):
-                emparejar("retorna")
-                Tipo()
-                return
-        elif(token() == "var" or token() == "tipos" or token() == "const" or token() == "inicio" ):
-                return
-        else:
-                error_sintactico(OptionalReturn_esperados)
-def IfSentenceStart():
-        global IfSentenceStart_esperados
-        if(token() == "si" ):
-                emparejar("si")
-                emparejar("tk_par_izq")
-                Expression()
-                emparejar("tk_par_der")
-                IfSentence()
-                return
-        else:
-                error_sintactico(IfSentenceStart_esperados)
+                error_sintactico(ListOfSentencesHasSentence_esperados)
 def Sentence():
         global Sentence_esperados
         if(token() == "tk_id" ):
@@ -797,76 +577,25 @@ def Sentence():
                 return
         else:
                 error_sintactico(Sentence_esperados)
-def OtherObject():
-        global OtherObject_esperados
-        if(token() == "logico" or token() == "cadena" or token() == "numerico" or token() == "vector" or token() == "tk_id" ):
-                Tipo()
+def FunctionDeclarationParamsNotEmpty():
+        global FunctionDeclarationParamsNotEmpty_esperados
+        if(token() == "tk_coma" ):
+                emparejar("tk_coma")
+                Declaration()
+                FunctionDeclarationParamsNotEmpty()
                 return
-        elif(token() == "registro" ):
-                emparejar("registro")
-                emparejar("tk_llave_izq")
-                AssignationVar()
-                emparejar("tk_llave_der")
+        elif(token() == "tk_par_der" ):
                 return
         else:
-                error_sintactico(OtherObject_esperados)
-def ListOfSentencesHasSentence():
-        global ListOfSentencesHasSentence_esperados
-        if(token() == "tk_pyq" ):
-                emparejar("tk_pyq")
-                ListOfSentences()
-                return
-        elif(token() == "tk_par_der" or token() == "hasta" or token() == "si" or token() == "repetir" or token() == "sino" or token() == "tk_llave_der" or token() == "fin" or token() == "desde" or token() == "caso" or token() == "eval" or token() == "mientras" or token() == "tk_id" ):
-                ListOfSentences()
+                error_sintactico(FunctionDeclarationParamsNotEmpty_esperados)
+def AssignationTypes():
+        global AssignationTypes_esperados
+        if(token() == "tk_id" ):
+                Object()
+                ListObject()
                 return
         else:
-                error_sintactico(ListOfSentencesHasSentence_esperados)
-def BodyWhile():
-        global BodyWhile_esperados
-        if(token() == "si" or token() == "repetir" or token() == "desde" or token() == "eval" or token() == "mientras" or token() == "tk_id" ):
-                Body()
-                BodyWhile()
-                return
-        elif(token() == "tk_llave_der" or token() == "hasta" ):
-                return
-        else:
-                error_sintactico(BodyWhile_esperados)
-def Expression():
-        global Expression_esperados
-        if(token() == "tk_resta" ):
-                emparejar("tk_resta")
-                Expression()
-                return
-        elif(token() == "tk_par_izq" ):
-                emparejar("tk_par_izq")
-                Expression()
-                emparejar("tk_par_der")
-                OtherExpression()
-                return
-        elif(token() == "tk_cadena" or token() == "FALSE" or token() == "tk_num" or token() == "TRUE" or token() == "tk_id" ):
-                Constant()
-                OtherExpression()
-                return
-        else:
-                error_sintactico(Expression_esperados)
-def ListSubrutine():
-        global ListSubrutine_esperados
-        if(token() == "subrutina" ):
-                Subrutine()
-                ListSubrutine()
-                return
-        elif(token() == "EOF" or token() == "subrutina" ):
-                return
-        else:
-                error_sintactico(ListSubrutine_esperados)
-def SettingsVar():
-        global SettingsVar_esperados
-        if(token() == "var" ):
-                emparejar("var")
-                AssignationVar()
-                return
-        else:
-                error_sintactico(SettingsVar_esperados)
+                error_sintactico(AssignationTypes_esperados)
 def CallToFunction():
         global CallToFunction_esperados
         if(token() == "tk_id" ):
@@ -875,152 +604,16 @@ def CallToFunction():
                 return
         else:
                 error_sintactico(CallToFunction_esperados)
-def LoopStep():
-        global LoopStep_esperados
-        if(token() == "tk_num" ):
-                emparejar("tk_num")
+def OptionalReturn():
+        global OptionalReturn_esperados
+        if(token() == "retorna" ):
+                emparejar("retorna")
+                Tipo()
                 return
-        elif(token() == "tk_id" ):
-                emparejar("tk_id")
-                return
-        else:
-                error_sintactico(LoopStep_esperados)
-def BodyEvalSentence():
-        global BodyEvalSentence_esperados
-        if(token() == "caso" ):
-                BodyCase()
-                BodyIfElseCase()
+        elif(token() == "inicio" or token() == "const" or token() == "tipos" or token() == "var" ):
                 return
         else:
-                error_sintactico(BodyEvalSentence_esperados)
-def BodyCase2():
-        global BodyCase2_esperados
-        if(token() == "caso" ):
-                emparejar("caso")
-                emparejar("tk_par_izq")
-                Expression()
-                emparejar("tk_par_der")
-                Body()
-                BodyCase2()
-                return
-        elif(token() == "tk_par_der" or token() == "sino" ):
-                return
-        else:
-                error_sintactico(BodyCase2_esperados)
-def BodyIfElseCase():
-        global BodyIfElseCase_esperados
-        if(token() == "tk_par_der" ):
-                return
-        elif(token() == "sino" ):
-                emparejar("sino")
-                Body()
-                return
-        else:
-                error_sintactico(BodyIfElseCase_esperados)
-def LoopSentence():
-        global LoopSentence_esperados
-        if(token() == "desde" ):
-                emparejar("desde")
-                Assignation()
-                emparejar("hasta")
-                LoopStep()
-                emparejar("tk_llave_izq")
-                Body()
-                emparejar("tk_llave_der")
-                return
-        else:
-                error_sintactico(LoopSentence_esperados)
-def Body():
-        global Body_esperados
-        if(token() == "si" or token() == "eval" or token() == "desde" or token() == "repetir" or token() == "mientras" or token() == "tk_id" ):
-                Sentence()
-                ListOfSentences()
-                return
-        else:
-                error_sintactico(Body_esperados)
-def ListObject():
-        global ListObject_esperados
-        if(token() == "tk_id" ):
-                Object()
-                ListObject()
-                return
-        elif(token() == "var" or token() == "tipos" or token() == "const" or token() == "inicio" ):
-                return
-        else:
-                error_sintactico(ListObject_esperados)
-def OtherExpression():
-        global OtherExpression_esperados
-        if(token() == "tk_menorigual" or token() == "tk_resta" or token() == "tk_igualdad" or token() == "tk_mod" or token() == "tk_distinto" or token() == "tk_menor" or token() == "and" or token() == "or" or token() == "tk_mult" or token() == "tk_mayor" or token() == "tk_mayorigual" or token() == "tk_division" or token() == "tk_suma" or token() == "tk_exp" ):
-                Operador()
-                Expression()
-                return
-        elif(token() == "hasta" or token() == "tk_pyq" or token() == "desde" or token() == "caso" or token() == "inicio" or token() == "tk_brac_der" or token() == "mientras" or token() == "tk_id" or token() == "tk_par_der" or token() == "si" or token() == "tk_llave_der" or token() == "const" or token() == "fin" or token() == "eval" or token() == "var" or token() == "tipos" or token() == "sino" or token() == "tk_coma" or token() == "repetir" ):
-                return
-        else:
-                error_sintactico(OtherExpression_esperados)
-def Subrutine():
-        global Subrutine_esperados
-        if(token() == "subrutina" ):
-                SubrutineStart()
-                S()
-                return
-        else:
-                error_sintactico(Subrutine_esperados)
-def BodyIfSentence():
-        global BodyIfSentence_esperados
-        if(token() == "si" or token() == "repetir" or token() == "desde" or token() == "eval" or token() == "mientras" or token() == "tk_id" ):
-                print("anothertoken")
-                Body()
-                BodyIfSentence()
-                return
-        elif(token() == "sino" or token() == "tk_llave_der" ):
-                return
-        else:
-                error_sintactico(BodyIfSentence_esperados)
-def ListOfSentences():
-        global ListOfSentences_esperados
-        if(token() == "si" or token() == "eval" or token() == "desde" or token() == "repetir" or token() == "mientras" or token() == "tk_id" ):
-                Sentence()
-                ListOfSentencesHasSentence()
-                return
-        elif(token() == "tk_par_der" or token() == "hasta" or token() == "si" or token() == "tk_llave_der" or token() == "fin" or token() == "desde" or token() == "caso" or token() == "eval" or token() == "sino" or token() == "repetir" or token() == "mientras" or token() == "tk_id" ):
-                return
-        else:
-                error_sintactico(ListOfSentences_esperados)
-def ListAssignations():
-        global ListAssignations_esperados
-        if(token() == "tk_id" ):
-                Assignation()
-                ListAssignations()
-                return
-        elif(token() == "var" or token() == "tipos" or token() == "const" or token() == "inicio" ):
-                return
-        else:
-                error_sintactico(ListAssignations_esperados)
-def ListId():
-        global ListId_esperados
-        if(token() == "tk_coma" ):
-                emparejar("tk_coma")
-                emparejar("tk_id")
-                ListId()
-                return
-        elif(token() == "tk_asig" or token() == "tk_dospuntos" ):
-                return
-        else:
-                error_sintactico(ListId_esperados)
-def WhileSentence():
-        global WhileSentence_esperados
-        if(token() == "mientras" ):
-                emparejar("mientras")
-                emparejar("tk_par_izq")
-                Expression()
-                emparejar("tk_par_der")
-                emparejar("tk_llave_izq")
-                BodyWhile()
-                emparejar("tk_llave_der")
-                return
-        else:
-                error_sintactico(WhileSentence_esperados)
+                error_sintactico(OptionalReturn_esperados)
 def Declaration():
         global Declaration_esperados
         if(token() == "tk_id" ):
@@ -1031,69 +624,44 @@ def Declaration():
                 return
         else:
                 error_sintactico(Declaration_esperados)
-def FunctionParamsNotEmpty():
-        global FunctionParamsNotEmpty_esperados
-        if(token() == "tk_coma" ):
+def ListTipoVector():
+        global ListTipoVector_esperados
+        if(token() == "tk_brac_der" ):
+                return
+        elif(token() == "tk_coma" ):
                 emparejar("tk_coma")
-                Expression()
-                FunctionParamsNotEmpty()
-                return
-        elif(token() == "tk_par_der" ):
-                return
-        else:
-                error_sintactico(FunctionParamsNotEmpty_esperados)
-def SettingsConst():
-        global SettingsConst_esperados
-        if(token() == "const" ):
-                emparejar("const")
-                AssignationConst()
-                return
-        else:
-                error_sintactico(SettingsConst_esperados)
-def Assignation():
-        global Assignation_esperados
-        if(token() == "tk_id" ):
-                emparejar("tk_id")
-                ListId()
-                emparejar("tk_asig")
-                Expression()
-                return
-        else:
-                error_sintactico(Assignation_esperados)
-def S():
-        global S_esperados
-        if(token() == "var" or token() == "tipos" or token() == "const" or token() == "inicio" ):
-                Settings()
-                emparejar("inicio")
-                Body()
-                emparejar("fin")
-                ListSubrutine()
-                return
-        else:
-                error_sintactico(S_esperados)
-def Tipo():
-        global Tipo_esperados
-        if(token() == "numerico" ):
-                emparejar("numerico")
-                return
-        elif(token() == "cadena" ):
-                emparejar("cadena")
-                return
-        elif(token() == "vector" ):
-                emparejar("vector")
-                emparejar("tk_brac_izq")
                 TipoVector()
-                emparejar("tk_brac_der")
-                Tipo()
-                return
-        elif(token() == "logico" ):
-                emparejar("logico")
-                return
-        elif(token() == "tk_id" ):
-                emparejar("tk_id")
                 return
         else:
-                error_sintactico(Tipo_esperados)
+                error_sintactico(ListTipoVector_esperados)
+def SettingsVar():
+        global SettingsVar_esperados
+        if(token() == "var" ):
+                emparejar("var")
+                AssignationVar()
+                return
+        else:
+                error_sintactico(SettingsVar_esperados)
+def BodyIfSentence():
+        global BodyIfSentence_esperados
+        if(token() == "tk_id" or token() == "repetir" or token() == "si" or token() == "eval" or token() == "desde" or token() == "mientras" ):
+                Body()
+                BodyIfSentence()
+                return
+        elif(token() == "tk_llave_der" or token() == "sino" ):
+                return
+        else:
+                error_sintactico(BodyIfSentence_esperados)
+def BodyIfElseCase():
+        global BodyIfElseCase_esperados
+        if(token() == "tk_llave_der" ):
+                return
+        elif(token() == "sino" ):
+                emparejar("sino")
+                Body()
+                return
+        else:
+                error_sintactico(BodyIfElseCase_esperados)
 def Operador():
         global Operador_esperados
         if(token() == "tk_suma" ):
@@ -1140,7 +708,491 @@ def Operador():
                 return
         else:
                 error_sintactico(Operador_esperados)
-
+def S():
+        global S_esperados
+        if(token() == "inicio" or token() == "const" or token() == "tipos" or token() == "var" ):
+                Settings()
+                emparejar("inicio")
+                Body()
+                emparejar("fin")
+                ListSubrutine()
+                return
+        else:
+                error_sintactico(S_esperados)
+def SentenceStartsWithId():
+        global SentenceStartsWithId_esperados
+        if(token() == "tk_coma" or token() == "tk_brac_izq" or token() == "tk_asig" ):
+                AssignationSeenId()
+                return
+        elif(token() == "tk_par_izq" ):
+                CallToFunctionSeenId()
+                return
+        else:
+                error_sintactico(SentenceStartsWithId_esperados)
+def SettingsTypes():
+        global SettingsTypes_esperados
+        if(token() == "tipos" ):
+                emparejar("tipos")
+                AssignationTypes()
+                return
+        else:
+                error_sintactico(SettingsTypes_esperados)
+def LoopSentence():
+        global LoopSentence_esperados
+        if(token() == "desde" ):
+                emparejar("desde")
+                Assignation()
+                emparejar("hasta")
+                LoopStep()
+                emparejar("tk_llave_izq")
+                Body()
+                emparejar("tk_llave_der")
+                return
+        else:
+                error_sintactico(LoopSentence_esperados)
+def BodyCase2():
+        global BodyCase2_esperados
+        if(token() == "caso" ):
+                emparejar("caso")
+                emparejar("tk_par_izq")
+                Expression()
+                emparejar("tk_par_der")
+                Body()
+                BodyCase2()
+                return
+        elif(token() == "tk_llave_der" or token() == "sino" ):
+                return
+        else:
+                error_sintactico(BodyCase2_esperados)
+def IfSentenceStart():
+        global IfSentenceStart_esperados
+        if(token() == "si" ):
+                emparejar("si")
+                emparejar("tk_par_izq")
+                Expression()
+                emparejar("tk_par_der")
+                IfSentence()
+                return
+        else:
+                error_sintactico(IfSentenceStart_esperados)
+def FunctionParams():
+        global FunctionParams_esperados
+        if(token() == "tk_par_der" ):
+                return
+        elif(token() == "tk_llave_izq" or token() == "tk_id" or token() == "FALSE" or token() == "tk_cadena" or token() == "TRUE" or token() == "tk_resta" or token() == "tk_num" or token() == "tk_par_izq" ):
+                Expression()
+                FunctionParamsNotEmpty()
+                return
+        else:
+                error_sintactico(FunctionParams_esperados)
+def AssignationSeenId():
+        global AssignationSeenId_esperados
+        if(token() == "tk_coma" or token() == "tk_asig" ):
+                ListId()
+                emparejar("tk_asig")
+                Expression()
+                return
+        elif(token() == "tk_brac_izq" ):
+                emparejar("tk_brac_izq")
+                Expression()
+                emparejar("tk_brac_der")
+                ListId()
+                emparejar("tk_asig")
+                Expression()
+                return
+        else:
+                error_sintactico(AssignationSeenId_esperados)
+def DoWhileSentence():
+        global DoWhileSentence_esperados
+        if(token() == "repetir" ):
+                emparejar("repetir")
+                BodyWhile()
+                emparejar("hasta")
+                emparejar("tk_par_izq")
+                Expression()
+                emparejar("tk_par_der")
+                return
+        else:
+                error_sintactico(DoWhileSentence_esperados)
+def ConstantSeenId():
+        global ConstantSeenId_esperados
+        if(token() == "tk_par_izq" ):
+                CallToFunctionSeenId()
+                return
+        elif(token() == "tk_punto" ):
+                emparejar("tk_punto")
+                Constant()
+                return
+        elif(token() == "tk_exp" or token() == "si" or token() == "eval" or token() == "tk_mayorigual" or token() == "const" or token() == "tk_llave_izq" or token() == "tk_coma" or token() == "FALSE" or token() == "tk_mayor" or token() == "tk_cadena" or token() == "tk_resta" or token() == "tk_num" or token()
+== "tk_brac_der" or token() == "fin" or token() == "desde" or token() == "repetir" or token() == "tk_pyq" or token() == "tk_mod" or token() == "TRUE" or token() == "tk_igualdad" or token() == "sino" or token() == "tk_dospuntos" or token() == "tk_distinto" or token() == "tk_llave_der" or token() == "var" or token() == "tk_suma" or token() == "mientras" or token() == "and" or token() == "tk_par_der" or token() == "tk_menor" or token() == "tk_division" or token() == "tk_par_izq" or token() == "tipos" or token() == "hasta" or token() == "inicio" or token() == "tk_brac_izq" or token() == "caso" or token() == "tk_mult" or token() == "tk_id" or token() == "tk_menorigual" or token() == "tk_asig" or token() == "or" ):
+                return
+        else:
+                error_sintactico(ConstantSeenId_esperados)
+def Expression():
+        global Expression_esperados
+        if(token() == "tk_resta" ):
+                emparejar("tk_resta")
+                Expression()
+                return
+        elif(token() == "tk_par_izq" ):
+                emparejar("tk_par_izq")
+                Expression()
+                emparejar("tk_par_der")
+                return
+        elif(token() == "tk_llave_izq" ):
+                emparejar("tk_llave_izq")
+                ListExpression()
+                emparejar("tk_llave_der")
+                return
+        elif(token() == "tk_id" or token() == "FALSE" or token() == "TRUE" or token() == "tk_num" or token() == "tk_cadena" ):
+                Constant()
+                OtherExpression()
+                return
+        else:
+                error_sintactico(Expression_esperados)
+def WhileSentence():
+        global WhileSentence_esperados
+        if(token() == "mientras" ):
+                emparejar("mientras")
+                emparejar("tk_par_izq")
+                Expression()
+                emparejar("tk_par_der")
+                emparejar("tk_llave_izq")
+                BodyWhile()
+                emparejar("tk_llave_der")
+                return
+        else:
+                error_sintactico(WhileSentence_esperados)
+def Assignation():
+        global Assignation_esperados
+        if(token() == "tk_llave_izq" or token() == "tk_id" or token() == "FALSE" or token() == "tk_cadena" or token() == "TRUE" or token() == "tk_resta" or token() == "tk_num" or token() == "tk_par_izq" ):
+                Expression()
+                ListId()
+                emparejar("tk_asig")
+                Expression()
+                return
+        else:
+                error_sintactico(Assignation_esperados)
+def Subrutine():
+        global Subrutine_esperados
+        if(token() == "subrutina" ):
+                SubrutineStart()
+                S()
+                return
+        else:
+                error_sintactico(Subrutine_esperados)
+def Object():
+        global Object_esperados
+        if(token() == "tk_id" ):
+                emparejar("tk_id")
+                emparejar("tk_dospuntos")
+                Tipo()
+                return
+        else:
+                error_sintactico(Object_esperados)
+def IfElseSentence():
+        global IfElseSentence_esperados
+        if(token() == "sino" ):
+                emparejar("sino")
+                BodyIfSentence()
+                return
+        elif(token() == "tk_llave_der" ):
+                return
+        else:
+                error_sintactico(IfElseSentence_esperados)
+def AssignationVar():
+        global AssignationVar_esperados
+        if(token() == "tk_id" ):
+                Declaration()
+                ListDeclarations()
+                return
+        else:
+                error_sintactico(AssignationVar_esperados)
+def ListId():
+        global ListId_esperados
+        if(token() == "tk_coma" ):
+                emparejar("tk_coma")
+                Expression()
+                ListId()
+                return
+        elif(token() == "tk_dospuntos" or token() == "tk_asig" ):
+                return
+        else:
+                error_sintactico(ListId_esperados)
+def SettingsConst():
+        global SettingsConst_esperados
+        if(token() == "const" ):
+                emparejar("const")
+                AssignationConst()
+                return
+        else:
+                error_sintactico(SettingsConst_esperados)
+def ListObject():
+        global ListObject_esperados
+        if(token() == "tk_id" ):
+                Object()
+                ListObject()
+                return
+        elif(token() == "inicio" or token() == "const" or token() == "tipos" or token() == "var" ):
+                return
+        else:
+                error_sintactico(ListObject_esperados)
+def Tipo():
+        global Tipo_esperados
+        if(token() == "numerico" ):
+                emparejar("numerico")
+                return
+        elif(token() == "cadena" ):
+                emparejar("cadena")
+                return
+        elif(token() == "vector" ):
+                emparejar("vector")
+                emparejar("tk_brac_izq")
+                TipoVector()
+                emparejar("tk_brac_der")
+                Tipo()
+                return
+        elif(token() == "matriz" ):
+                emparejar("matriz")
+                emparejar("tk_brac_izq")
+                TipoVector()
+                emparejar("tk_brac_der")
+                Tipo()
+                return
+        elif(token() == "registro" ):
+                emparejar("registro")
+                emparejar("tk_llave_izq")
+                AssignationVar()
+                emparejar("tk_llave_der")
+                return
+        elif(token() == "logico" ):
+                emparejar("logico")
+                return
+        elif(token() == "tk_id" ):
+                emparejar("tk_id")
+                return
+        else:
+                error_sintactico(Tipo_esperados)
+def CallToFunctionSeenId():
+        global CallToFunctionSeenId_esperados
+        if(token() == "tk_par_izq" ):
+                emparejar("tk_par_izq")
+                FunctionParams()
+                emparejar("tk_par_der")
+                return
+        else:
+                error_sintactico(CallToFunctionSeenId_esperados)
+def OtherExpression():
+        global OtherExpression_esperados
+        if(token() == "tk_exp" or token() == "tk_suma" or token() == "tk_mayorigual" or token() == "tk_mult" or token() == "and" or token() == "tk_mayor" or token() == "tk_menor" or token() == "tk_menorigual" or token() == "tk_mod" or token() == "tk_division" or token() == "tk_igualdad" or token() == "tk_resta" or token() == "or" or token() == "tk_distinto" ):
+                Operador()
+                Expression()
+                return
+        elif(token() == "tk_brac_izq" ):
+                emparejar("tk_brac_izq")
+                Expression()
+                emparejar("tk_brac_der")
+                return
+        elif(token() == "tk_llave_der" or token() == "si" or token() == "var" or token() == "eval" or token() == "mientras" or token() == "const" or token() == "tk_llave_izq" or token() == "tk_coma" or token() == "FALSE" or token() == "tk_par_der" or token() == "tk_resta" or token() == "tk_num" or token() ==
+"tk_brac_der" or token() == "tipos" or token() == "tk_par_izq" or token() == "hasta" or token() == "fin" or token() == "desde" or token() == "inicio" or token() == "caso" or token() == "repetir" or token() == "tk_id" or token() == "tk_pyq" or token() == "TRUE" or token() == "tk_asig" or token() == "sino" or token() == "tk_dospuntos" or token() == "tk_cadena" ):
+                return
+        else:
+                error_sintactico(OtherExpression_esperados)
+def LoopStep():
+        global LoopStep_esperados
+        if(token() == "tk_id" or token() == "FALSE" or token() == "TRUE" or token() == "tk_num" or token() == "tk_cadena" ):
+                Constant()
+                return
+        else:
+                error_sintactico(LoopStep_esperados)
+def EvalSentence():
+        global EvalSentence_esperados
+        if(token() == "eval" ):
+                emparejar("eval")
+                emparejar("tk_llave_izq")
+                BodyEvalSentence()
+                emparejar("tk_llave_der")
+                return
+        else:
+                error_sintactico(EvalSentence_esperados)
+def Constant():
+        global Constant_esperados
+        if(token() == "tk_num" ):
+                emparejar("tk_num")
+                return
+        elif(token() == "tk_cadena" ):
+                emparejar("tk_cadena")
+                return
+        elif(token() == "tk_id" ):
+                emparejar("tk_id")
+                ConstantSeenId()
+                return
+        elif(token() == "TRUE" ):
+                emparejar("TRUE")
+                return
+        elif(token() == "FALSE" ):
+                emparejar("FALSE")
+                return
+        else:
+                error_sintactico(Constant_esperados)
+def FunctionParamsNotEmpty():
+        global FunctionParamsNotEmpty_esperados
+        if(token() == "tk_coma" ):
+                emparejar("tk_coma")
+                Expression()
+                FunctionParamsNotEmpty()
+                return
+        elif(token() == "tk_par_der" ):
+                return
+        else:
+                error_sintactico(FunctionParamsNotEmpty_esperados)
+def BodyWhile():
+        global BodyWhile_esperados
+        if(token() == "tk_id" or token() == "repetir" or token() == "si" or token() == "eval" or token() == "desde" or token() == "mientras" ):
+                Body()
+                BodyWhile()
+                return
+        elif(token() == "tk_llave_der" or token() == "hasta" ):
+                return
+        else:
+                error_sintactico(BodyWhile_esperados)
+def AssignationConst():
+        global AssignationConst_esperados
+        if(token() == "tk_llave_izq" or token() == "tk_id" or token() == "FALSE" or token() == "tk_cadena" or token() == "TRUE" or token() == "tk_resta" or token() == "tk_num" or token() == "tk_par_izq" ):
+                Assignation()
+                ListAssignations()
+                return
+        else:
+                error_sintactico(AssignationConst_esperados)
+def TipoVector():
+        global TipoVector_esperados
+        if(token() == "tk_llave_izq" or token() == "tk_id" or token() == "FALSE" or token() == "tk_cadena" or token() == "TRUE" or token() == "tk_resta" or token() == "tk_num" or token() == "tk_par_izq" ):
+                Expression()
+                ListTipoVector()
+                return
+        elif(token() == "tk_mult" ):
+                emparejar("tk_mult")
+                ListTipoVector()
+                return
+        else:
+                error_sintactico(TipoVector_esperados)
+def ListSubrutine():
+        global ListSubrutine_esperados
+        if(token() == "subrutina" ):
+                Subrutine()
+                ListSubrutine()
+                return
+        elif(token() == "subrutina" or token() == "EOF" ):
+                return
+        else:
+                error_sintactico(ListSubrutine_esperados)
+def Body():
+        global Body_esperados
+        if(token() == "tk_id" or token() == "repetir" or token() == "si" or token() == "eval" or token() == "desde" or token() == "mientras" ):
+                Sentence()
+                ListOfSentences()
+                return
+        else:
+                error_sintactico(Body_esperados)
+def Settings():
+        global Settings_esperados
+        if(token() == "const" ):
+                SettingsConst()
+                Settings()
+                return
+        elif(token() == "tipos" ):
+                SettingsTypes()
+                Settings()
+                return
+        elif(token() == "var" ):
+                SettingsVar()
+                Settings()
+                return
+        elif(token() == "inicio" ):
+                return
+        else:
+                error_sintactico(Settings_esperados)
+def SubrutineStart():
+        global SubrutineStart_esperados
+        if(token() == "subrutina" ):
+                emparejar("subrutina")
+                FunctionDeclaration()
+                OptionalReturn()
+                return
+        else:
+                error_sintactico(SubrutineStart_esperados)
+def ListOfSentences():
+        global ListOfSentences_esperados
+        if(token() == "tk_id" or token() == "repetir" or token() == "si" or token() == "eval" or token() == "desde" or token() == "mientras" ):
+                Sentence()
+                ListOfSentencesHasSentence()
+                return
+        elif(token() == "hasta" or token() == "tk_llave_der" or token() == "si" or token() == "eval" or token() == "fin" or token() == "desde" or token() == "caso" or token() == "mientras" or token() == "tk_id" or token() == "repetir" or token() == "sino" ):
+                return
+        else:
+                error_sintactico(ListOfSentences_esperados)
+def ListExpressionNotEmpty():
+        global ListExpressionNotEmpty_esperados
+        if(token() == "tk_coma" ):
+                emparejar("tk_coma")
+                Expression()
+                ListExpressionNotEmpty()
+                return
+        elif(token() == "tk_llave_der" ):
+                return
+        else:
+                error_sintactico(ListExpressionNotEmpty_esperados)
+def ListAssignations():
+        global ListAssignations_esperados
+        if(token() == "tk_llave_izq" or token() == "tk_id" or token() == "FALSE" or token() == "tk_cadena" or token() == "TRUE" or token() == "tk_resta" or token() == "tk_num" or token() == "tk_par_izq" ):
+                Assignation()
+                ListAssignations()
+                return
+        elif(token() == "inicio" or token() == "const" or token() == "tipos" or token() == "var" ):
+                return
+        else:
+                error_sintactico(ListAssignations_esperados)
+def FunctionDeclarationParams():
+        global FunctionDeclarationParams_esperados
+        if(token() == "tk_par_der" ):
+                return
+        elif(token() == "tk_id" ):
+                Declaration()
+                FunctionDeclarationParamsNotEmpty()
+                return
+        else:
+                error_sintactico(FunctionDeclarationParams_esperados)
+def ListExpression():
+        global ListExpression_esperados
+        if(token() == "tk_llave_der" ):
+                return
+        elif(token() == "tk_llave_izq" or token() == "tk_id" or token() == "FALSE" or token() == "tk_cadena" or token() == "TRUE" or token() == "tk_resta" or token() == "tk_num" or token() == "tk_par_izq" ):
+                Expression()
+                ListExpressionNotEmpty()
+                return
+        else:
+                error_sintactico(ListExpression_esperados)
+def BodyEvalSentence():
+        global BodyEvalSentence_esperados
+        if(token() == "caso" ):
+                BodyCase()
+                BodyIfElseCase()
+                return
+        else:
+                error_sintactico(BodyEvalSentence_esperados)
+def IfSentence():
+        global IfSentence_esperados
+        if(token() == "tk_llave_izq" ):
+                emparejar("tk_llave_izq")
+                BodyIfSentence()
+                IfElseSentence()
+                emparejar("tk_llave_der")
+                return
+        elif(token() == "tk_llave_izq" or token() == "tk_id" or token() == "FALSE" or token() == "tk_cadena" or token() == "TRUE" or token() == "tk_resta" or token() == "tk_num" or token() == "tk_par_izq" ):
+                Assignation()
+                return
+        else:
+                error_sintactico(IfSentence_esperados)
 
 
 ### FIN CODIGO GENERADO

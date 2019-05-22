@@ -1,4 +1,4 @@
-109
+118
 S -> Settings inicio Body fin ListSubrutine
 Settings -> SettingsConst Settings
 Settings -> SettingsTypes Settings
@@ -10,9 +10,7 @@ SettingsVar -> var AssignationVar
 AssignationConst -> Assignation ListAssignations
 AssignationTypes -> Object ListObject
 AssignationVar -> Declaration ListDeclarations
-Object -> tk_id tk_dospuntos OtherObject
-OtherObject -> Tipo
-OtherObject -> registro tk_llave_izq AssignationVar tk_llave_der
+Object -> tk_id tk_dospuntos Tipo
 ListObject -> Object ListObject
 ListObject -> 
 Declaration -> tk_id ListId tk_dospuntos Tipo
@@ -25,18 +23,25 @@ FunctionParams ->
 FunctionParams -> Expression FunctionParamsNotEmpty
 FunctionParamsNotEmpty -> tk_coma Expression FunctionParamsNotEmpty
 FunctionParamsNotEmpty -> 
-Assignation -> tk_id ListId tk_asig Expression
-ListId -> tk_coma tk_id ListId
+Assignation -> Expression ListId tk_asig Expression
+ListId -> tk_coma Expression ListId
 ListId ->
+ListExpression -> 
+ListExpression -> Expression ListExpressionNotEmpty
+ListExpressionNotEmpty -> tk_coma Expression ListExpressionNotEmpty
+ListExpressionNotEmpty -> 
 Expression -> tk_resta Expression
-Expression -> tk_par_izq Expression tk_par_der OtherExpression
+Expression -> tk_par_izq Expression tk_par_der 
+Expression -> tk_llave_izq ListExpression tk_llave_der
 Expression -> Constant OtherExpression
 OtherExpression -> Operador Expression
+OtherExpression -> tk_brac_izq Expression tk_brac_der 
 OtherExpression ->
 Constant -> tk_num
 Constant -> tk_cadena
 Constant -> tk_id ConstantSeenId
 ConstantSeenId -> CallToFunctionSeenId
+ConstantSeenId -> tk_punto Constant
 ConstantSeenId -> 
 Constant -> TRUE
 Constant -> FALSE
@@ -57,8 +62,12 @@ Operador -> tk_exp
 Tipo -> numerico
 Tipo -> cadena
 Tipo -> vector tk_brac_izq TipoVector tk_brac_der Tipo
-TipoVector -> Expression
-TipoVector -> tk_mult
+Tipo -> matriz tk_brac_izq TipoVector tk_brac_der Tipo
+Tipo -> registro tk_llave_izq AssignationVar tk_llave_der
+TipoVector -> Expression ListTipoVector
+TipoVector -> tk_mult ListTipoVector
+ListTipoVector -> 
+ListTipoVector -> tk_coma TipoVector
 Tipo -> logico
 Tipo -> tk_id
 ListOfSentences -> Sentence ListOfSentencesHasSentence
@@ -81,6 +90,7 @@ SentenceStartsWithId -> AssignationSeenId
 SentenceStartsWithId -> CallToFunctionSeenId
 CallToFunctionSeenId -> tk_par_izq FunctionParams tk_par_der
 AssignationSeenId -> ListId tk_asig Expression
+AssignationSeenId -> tk_brac_izq Expression tk_brac_der ListId tk_asig Expression
 Sentence -> IfSentenceStart
 Sentence -> WhileSentence
 Sentence -> DoWhileSentence
@@ -91,12 +101,11 @@ IfSentence -> tk_llave_izq BodyIfSentence IfElseSentence tk_llave_der
 IfSentence -> Assignation 
 IfElseSentence -> sino BodyIfSentence
 IfElseSentence -> 
-EvalSentence -> eval tk_par_izq BodyEvalSentence tk_par_der 
+EvalSentence -> eval tk_llave_izq BodyEvalSentence tk_llave_der 
 WhileSentence -> mientras tk_par_izq Expression tk_par_der tk_llave_izq BodyWhile tk_llave_der
 DoWhileSentence -> repetir BodyWhile hasta tk_par_izq Expression tk_par_der
 LoopSentence -> desde Assignation hasta LoopStep tk_llave_izq Body tk_llave_der
-LoopStep -> tk_num
-LoopStep -> tk_id
+LoopStep -> Constant
 ListSubrutine -> Subrutine ListSubrutine
 ListSubrutine -> 
 Subrutine -> SubrutineStart S
